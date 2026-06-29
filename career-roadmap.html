@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>William Agbo — Healthcare Data Analytics Career Roadmap 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ===== TOKENS ===== */
+:root {
+  --navy:       #0B1628;
+  --navy-mid:   #111F38;
+  --teal:       #0D9488;
+  --teal-lt:    #2DD4BF;
+  --teal-muted: #F0FDFA;
+  --amber:      #F59E0B;
+  --sage:       #10B981;
+  --slate:      #F0F4F8;
+  --white:      #FFFFFF;
+  --ink:        #1E293B;
+  --ink-mid:    #334155;
+  --muted:      #64748B;
+  --border:     #E2E8F0;
+  --p1: #6366F1; --p1-bg: #EEF2FF;
+  --p2: #0D9488; --p2-bg: #F0FDFA;
+  --p3: #D97706; --p3-bg: #FFFBEB;
+  --p4: #DB2777; --p4-bg: #FDF2F8;
+  --r: 12px;
+  --sh: 0 2px 16px rgba(11,22,40,.07);
+  --sh2: 0 6px 28px rgba(11,22,40,.13);
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Inter',sans-serif; background:var(--slate); color:var(--ink); line-height:1.6; }
+a { color:inherit; text-decoration:none; }
+
+/* ===== HERO ===== */
+.hero {
+  background: linear-gradient(145deg, var(--navy) 0%, var(--navy-mid) 100%);
+  padding: 56px 24px 72px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content:'';
+  position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse 60% 55% at 20% 60%, rgba(13,148,136,.14) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 80% 20%, rgba(99,102,241,.10) 0%, transparent 60%);
+  pointer-events:none;
+}
+.hero-eyebrow {
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px; letter-spacing:3px; text-transform:uppercase;
+  color:var(--teal-lt); margin-bottom:14px;
+  position:relative;
+}
+.hero h1 {
+  font-family:'Outfit',sans-serif;
+  font-size:clamp(26px,5vw,46px); font-weight:800;
+  color:#fff; line-height:1.15; margin-bottom:10px;
+  position:relative;
+}
+.hero h1 em { font-style:normal; color:var(--teal-lt); }
+.hero-sub {
+  font-size:15px; color:rgba(255,255,255,.58);
+  max-width:520px; margin:0 auto 40px;
+  position:relative;
+}
+
+/* Progress Ring */
+.ring-wrap {
+  display:flex; flex-direction:column; align-items:center; gap:10px;
+  position:relative;
+}
+.ring-svg { transform:rotate(-90deg); width:148px; height:148px; }
+.ring-track { fill:none; stroke:rgba(255,255,255,.07); stroke-width:9; }
+.ring-fill {
+  fill:none; stroke:var(--teal-lt); stroke-width:9;
+  stroke-linecap:round;
+  stroke-dasharray:395.84;
+  stroke-dashoffset:395.84;
+  transition:stroke-dashoffset .7s cubic-bezier(.4,0,.2,1);
+}
+.ring-center {
+  position:absolute; top:50%; left:50%;
+  transform:translate(-50%,-50%);
+  text-align:center;
+}
+.ring-pct {
+  font-family:'Outfit',sans-serif; font-size:34px; font-weight:800;
+  color:#fff; display:block; line-height:1;
+}
+.ring-lbl {
+  font-family:'JetBrains Mono',monospace;
+  font-size:9px; text-transform:uppercase; letter-spacing:1.5px;
+  color:rgba(255,255,255,.4); margin-top:3px; display:block;
+}
+.ring-note { font-size:13px; color:rgba(255,255,255,.45); }
+.ring-note strong { color:var(--amber); }
+
+/* ===== NICHE BANNER ===== */
+.niche-bar {
+  background:var(--teal);
+  padding:16px 24px;
+  text-align:center;
+}
+.niche-bar p {
+  font-family:'Outfit',sans-serif;
+  font-size:14px; font-weight:600; color:#fff;
+  max-width:820px; margin:0 auto; line-height:1.7;
+}
+.niche-bar .tag {
+  background:rgba(255,255,255,.18);
+  border-radius:4px; padding:2px 9px; margin:0 3px;
+  font-size:13px;
+}
+
+/* ===== MAIN LAYOUT ===== */
+.main { max-width:900px; margin:0 auto; padding:48px 20px 80px; }
+.section-eyebrow {
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px; letter-spacing:3px; text-transform:uppercase;
+  color:var(--muted); margin-bottom:24px;
+}
+.section-heading {
+  font-family:'Outfit',sans-serif;
+  font-size:22px; font-weight:700; color:var(--ink);
+  margin-bottom:20px; margin-top:52px;
+}
+
+/* ===== PHASE CARDS ===== */
+.phase-card {
+  background:var(--white); border-radius:var(--r);
+  box-shadow:var(--sh); margin-bottom:18px;
+  overflow:hidden;
+  transition:box-shadow .2s;
+}
+.phase-card:hover { box-shadow:var(--sh2); }
+
+.phase-header {
+  display:flex; align-items:center; gap:14px;
+  padding:20px 22px; cursor:pointer; user-select:none;
+  border-left:5px solid var(--pc);
+}
+.phase-badge {
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px; font-weight:500; color:var(--pc);
+  background:var(--pc-bg); padding:4px 10px;
+  border-radius:20px; white-space:nowrap; flex-shrink:0;
+}
+.phase-htext { flex:1; min-width:0; }
+.phase-title {
+  font-family:'Outfit',sans-serif;
+  font-size:17px; font-weight:700; color:var(--ink);
+}
+.phase-subtitle { font-size:13px; color:var(--muted); margin-top:2px; }
+
+.phase-mini-prog { display:flex; flex-direction:column; align-items:flex-end; gap:5px; flex-shrink:0; }
+.phase-mini-pct { font-family:'Outfit',sans-serif; font-size:14px; font-weight:700; color:var(--pc); }
+.mini-track { width:72px; height:4px; background:var(--border); border-radius:2px; overflow:hidden; }
+.mini-fill { height:100%; background:var(--pc); border-radius:2px; transition:width .4s ease; }
+
+.chevron { color:var(--muted); transition:transform .3s; flex-shrink:0; }
+.phase-card.open .chevron { transform:rotate(180deg); }
+
+.phase-body { display:none; padding:0 22px 26px; }
+.phase-card.open .phase-body { display:block; }
+
+.phase-desc {
+  font-size:14px; color:var(--ink-mid); line-height:1.75;
+  padding:16px 0 20px; border-top:1px solid var(--border);
+}
+
+/* ===== SKILL TABLE ===== */
+.skill-table { width:100%; border-collapse:collapse; margin-bottom:24px; font-size:13px; }
+.skill-table th {
+  background:var(--slate); padding:9px 13px;
+  text-align:left; font-weight:600; color:var(--ink-mid);
+  font-size:11px; text-transform:uppercase; letter-spacing:.5px;
+}
+.skill-table td { padding:10px 13px; border-bottom:1px solid var(--border); vertical-align:top; }
+.skill-table tr:last-child td { border-bottom:none; }
+.sname { font-weight:600; color:var(--ink); }
+
+/* ===== CHECKLIST ===== */
+.dl-heading {
+  font-family:'Outfit',sans-serif;
+  font-size:11px; font-weight:700; text-transform:uppercase;
+  letter-spacing:1.2px; color:var(--muted);
+  margin:18px 0 10px;
+}
+.dl-heading:first-child { margin-top:0; }
+
+.checklist { list-style:none; }
+.ci {
+  display:flex; align-items:flex-start; gap:11px;
+  padding:7px 0; border-bottom:1px solid rgba(226,232,240,.55);
+}
+.ci:last-child { border-bottom:none; }
+
+.ci input[type="checkbox"] {
+  -webkit-appearance:none; appearance:none;
+  width:17px; height:17px; flex-shrink:0;
+  border:2px solid var(--border); border-radius:4px;
+  background:#fff; cursor:pointer; margin-top:3px;
+  transition:background .15s, border-color .15s;
+  position:relative;
+}
+.ci input[type="checkbox"]:hover { border-color:var(--teal); }
+.ci input[type="checkbox"]:checked {
+  background:var(--sage); border-color:var(--sage);
+}
+.ci input[type="checkbox"]:checked::after {
+  content:'';
+  position:absolute; top:1px; left:4px;
+  width:5px; height:9px;
+  border:2px solid #fff;
+  border-top:none; border-left:none;
+  transform:rotate(45deg);
+}
+.ci label { font-size:14px; color:var(--ink-mid); cursor:pointer; line-height:1.55; }
+.ci.done label { text-decoration:line-through; color:var(--muted); }
+
+/* ===== RESOURCES ===== */
+.res-section { margin-top:22px; padding-top:18px; border-top:1px solid var(--border); }
+.res-heading {
+  font-family:'Outfit',sans-serif;
+  font-size:11px; font-weight:700; text-transform:uppercase;
+  letter-spacing:1.2px; color:var(--muted); margin-bottom:14px;
+}
+.res-group { margin-bottom:14px; }
+.res-group-lbl {
+  font-size:11px; font-weight:600; color:var(--muted);
+  text-transform:uppercase; letter-spacing:.5px; margin-bottom:8px;
+}
+.chips { display:flex; flex-wrap:wrap; gap:7px; }
+.chip {
+  display:inline-flex; align-items:center; gap:5px;
+  padding:5px 12px; border-radius:20px;
+  font-size:12px; font-weight:500; border:1.5px solid;
+  transition:transform .15s, box-shadow .15s;
+  cursor:pointer;
+}
+.chip:hover { transform:translateY(-1px); box-shadow:0 3px 10px rgba(0,0,0,.1); }
+.c-sql   { color:#4F46E5; border-color:#C7D2FE; background:#EEF2FF; }
+.c-py    { color:#0369A1; border-color:#BAE6FD; background:#F0F9FF; }
+.c-pbi   { color:#B45309; border-color:#FDE68A; background:#FFFBEB; }
+.c-stat  { color:#0D9488; border-color:#CCFBF1; background:#F0FDFA; }
+.c-data  { color:#7C3AED; border-color:#DDD6FE; background:#F5F3FF; }
+.c-gh    { color:#1E293B; border-color:#CBD5E1; background:#F8FAFC; }
+.c-jobs  { color:#BE185D; border-color:#FBCFE8; background:#FDF2F8; }
+.c-gen   { color:var(--ink-mid); border-color:var(--border); background:var(--slate); }
+
+/* ===== MILESTONES ===== */
+.ms-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+  gap:14px;
+}
+.ms-card {
+  background:var(--white); border-radius:var(--r);
+  padding:18px 20px; box-shadow:var(--sh);
+  border-top:3px solid var(--mc);
+}
+.ms-month {
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px; text-transform:uppercase;
+  letter-spacing:2px; color:var(--mc);
+  margin-bottom:8px; display:block;
+}
+.ms-text { font-size:13px; color:var(--ink-mid); line-height:1.6; }
+
+/* ===== HACKS ===== */
+.hacks-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(255px,1fr));
+  gap:14px;
+}
+.hack-card {
+  background:var(--white); border-radius:var(--r);
+  padding:20px; box-shadow:var(--sh);
+  display:flex; gap:14px;
+}
+.hack-icon { font-size:22px; flex-shrink:0; line-height:1; margin-top:1px; }
+.hack-title {
+  font-family:'Outfit',sans-serif;
+  font-size:15px; font-weight:700; color:var(--ink);
+  margin-bottom:5px;
+}
+.hack-desc { font-size:13px; color:var(--ink-mid); line-height:1.65; }
+
+/* ===== FOOTER ===== */
+footer {
+  background:var(--navy); color:rgba(255,255,255,.35);
+  text-align:center; padding:24px 20px; font-size:12px; line-height:1.8;
+}
+footer strong { color:var(--teal-lt); }
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:580px) {
+  .phase-mini-prog { display:none; }
+  .ms-grid, .hacks-grid { grid-template-columns:1fr; }
+  .skill-table th:nth-child(3),
+  .skill-table td:nth-child(3) { display:none; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <p class="hero-eyebrow">Career Transition Roadmap · July – December 2026</p>
+  <h1>Healthcare Data Analytics<br><em>Your 6-Month Path to Remote Work</em></h1>
+  <p class="hero-sub">Built for William Mawunyo Agbo, Chief Biomedical Scientist — MSc Business &amp; Data Analytics. Starting from today.</p>
+  <div class="ring-wrap">
+    <svg class="ring-svg" viewBox="0 0 148 148" aria-hidden="true">
+      <circle class="ring-track" cx="74" cy="74" r="63"/>
+      <circle class="ring-fill" id="ringFill" cx="74" cy="74" r="63"/>
+    </svg>
+    <div class="ring-center">
+      <span class="ring-pct" id="ringPct">0%</span>
+      <span class="ring-lbl">Complete</span>
+    </div>
+    <p class="ring-note"><strong id="doneCount">0</strong> of <strong id="totalCount">0</strong> deliverables ticked</p>
+  </div>
+</header>
+
+<!-- NICHE BANNER -->
+<div class="niche-bar">
+  <p>Your niche — don't compete broadly:
+    <span class="tag">Clinical Data Analyst</span>
+    <span class="tag">Health Systems Analyst</span>
+    <span class="tag">Research Data Analyst</span>
+    <span class="tag">Healthcare BI Analyst</span>
+  </p>
+</div>
+
+<!-- MAIN -->
+<main class="main">
+  <p class="section-eyebrow">// Four phases · 24 weeks · 55 deliverables</p>
+
+  <!-- ══════════ PHASE 1 ══════════ -->
+  <article class="phase-card open"
+    style="--pc:var(--p1); --pc-bg:var(--p1-bg)">
+    <div class="phase-header" onclick="toggle(this)">
+      <span class="phase-badge">Phase 01 · Wk 1–2</span>
+      <div class="phase-htext">
+        <div class="phase-title">Audit &amp; Recalibrate</div>
+        <div class="phase-subtitle">Know exactly where you stand before moving an inch forward</div>
+      </div>
+      <div class="phase-mini-prog">
+        <span class="phase-mini-pct" id="pp1">0%</span>
+        <div class="mini-track"><div class="mini-fill" id="pb1" style="width:0%"></div></div>
+      </div>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="phase-body">
+      <p class="phase-desc">Before studying anything, you need a sharp picture of your actual gap — not the assumed one. Most career-switchers over-study things they already know and ignore real blockers. These two weeks surface exactly what to focus on in Phase 2 and stop you wasting scarce time.</p>
+
+      <p class="dl-heading">✓ Deliverables</p>
+      <ul class="checklist" data-phase="1">
+        <li class="ci"><input type="checkbox" id="c1_1"><label for="c1_1">Complete the free SQL skills diagnostic on StrataScratch — record your exact score</label></li>
+        <li class="ci"><input type="checkbox" id="c1_2"><label for="c1_2">Complete a Python / pandas assessment on DataCamp (free tier) — note your weak spots</label></li>
+        <li class="ci"><input type="checkbox" id="c1_3"><label for="c1_3">Write out every technical project completed since MSc: LFT simulation, Streamlit app, R Shiny DSS, procurement dashboard, Pine Script indicators</label></li>
+        <li class="ci"><input type="checkbox" id="c1_4"><label for="c1_4">Find 3 remote healthcare data analyst job postings on LinkedIn that excite you</label></li>
+        <li class="ci"><input type="checkbox" id="c1_5"><label for="c1_5">Extract the top 10 hard skills listed across those 3 postings</label></li>
+        <li class="ci"><input type="checkbox" id="c1_6"><label for="c1_6">Map your honest gap — match skills required vs. skills evidenced — in writing</label></li>
+        <li class="ci"><input type="checkbox" id="c1_7"><label for="c1_7">Block recurring learning slots in your calendar: 6–7:30 am daily, 30-min lunch, 1.5 hrs evening</label></li>
+      </ul>
+
+      <div class="res-section">
+        <p class="res-heading">🔗 Free Resources</p>
+        <div class="chips">
+          <a href="https://www.stratascratch.com" target="_blank" class="chip c-sql">StrataScratch — Skills Assessment</a>
+          <a href="https://www.datacamp.com" target="_blank" class="chip c-py">DataCamp — Free Tier</a>
+          <a href="https://www.linkedin.com/jobs/" target="_blank" class="chip c-jobs">LinkedIn Jobs — Remote Healthcare Data</a>
+          <a href="https://www.indeed.com/q-remote-healthcare-data-analyst-jobs.html" target="_blank" class="chip c-jobs">Indeed — Remote Analyst Roles</a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ══════════ PHASE 2 ══════════ -->
+  <article class="phase-card"
+    style="--pc:var(--p2); --pc-bg:var(--p2-bg)">
+    <div class="phase-header" onclick="toggle(this)">
+      <span class="phase-badge">Phase 02 · Wk 3–10</span>
+      <div class="phase-htext">
+        <div class="phase-title">Core Skills Consolidation</div>
+        <div class="phase-subtitle">SQL · Python · Power BI · Statistics</div>
+      </div>
+      <div class="phase-mini-prog">
+        <span class="phase-mini-pct" id="pp2">0%</span>
+        <div class="mini-track"><div class="mini-fill" id="pb2" style="width:0%"></div></div>
+      </div>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="phase-body">
+      <p class="phase-desc">SQL first — always. It's the language the data speaks. Before any analysis, you need to ask a database a question in its own grammar. Then Python to transform and model, Power BI to communicate visually, and statistics to make sure your conclusions actually hold. This is 8 weeks of 3.5 hours a day — protect the morning block above everything.</p>
+
+      <table class="skill-table">
+        <thead>
+          <tr>
+            <th>Skill</th><th>Primary Tool</th><th>Duration</th><th>Why Critical</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="sname">SQL</span></td><td>Mode Analytics / SQLiteOnline</td><td>3–4 wks</td><td>Asked in &gt;85% of analyst interviews globally</td></tr>
+          <tr><td><span class="sname">Python — pandas</span></td><td>Kaggle Learn (free)</td><td>3–4 wks</td><td>Universal standard for data wrangling + modelling</td></tr>
+          <tr><td><span class="sname">Power BI</span></td><td>Microsoft Learn (free)</td><td>2 wks</td><td>Dominant BI tool across healthcare and NGO sectors</td></tr>
+          <tr><td><span class="sname">Statistics</span></td><td>StatQuest on YouTube</td><td>Ongoing</td><td>Underpins all analytical credibility at interview</td></tr>
+        </tbody>
+      </table>
+
+      <p class="dl-heading">✓ SQL</p>
+      <ul class="checklist" data-phase="2">
+        <li class="ci"><input type="checkbox" id="c2_1"><label for="c2_1">Complete SQL Basics module on Mode Analytics Tutorial (Week 3)</label></li>
+        <li class="ci"><input type="checkbox" id="c2_2"><label for="c2_2">Complete Intermediate SQL on Mode Analytics: JOINs, subqueries, aggregations (Week 4)</label></li>
+        <li class="ci"><input type="checkbox" id="c2_3"><label for="c2_3">Solve 10 SQL problems on StrataScratch — filter by healthcare category (Week 4–5)</label></li>
+        <li class="ci"><input type="checkbox" id="c2_4"><label for="c2_4">Practice window functions and CTEs on SQLiteOnline using a made-up hospital schema (Week 5–6)</label></li>
+      </ul>
+
+      <p class="dl-heading">✓ Python</p>
+      <ul class="checklist" data-phase="2">
+        <li class="ci"><input type="checkbox" id="c2_5"><label for="c2_5">Complete Kaggle Learn — Python course (Week 5–6)</label></li>
+        <li class="ci"><input type="checkbox" id="c2_6"><label for="c2_6">Complete Kaggle Learn — Pandas course (Week 6–7)</label></li>
+        <li class="ci"><input type="checkbox" id="c2_7"><label for="c2_7">Complete Kaggle Learn — Data Visualization with seaborn &amp; matplotlib (Week 7)</label></li>
+        <li class="ci"><input type="checkbox" id="c2_8"><label for="c2_8">Rebuild your St. Michael's procurement analysis as a clean Jupyter notebook in Python/pandas (Week 8)</label></li>
+      </ul>
+
+      <p class="dl-heading">✓ Power BI</p>
+      <ul class="checklist" data-phase="2">
+        <li class="ci"><input type="checkbox" id="c2_9"><label for="c2_9">Download Power BI Desktop (free) and complete the Getting Started tutorial</label></li>
+        <li class="ci"><input type="checkbox" id="c2_10"><label for="c2_10">Complete Microsoft Learn — Power BI Fundamentals learning path (Week 9)</label></li>
+        <li class="ci"><input type="checkbox" id="c2_11"><label for="c2_11">Build your first full Power BI report from any public health dataset (Week 10)</label></li>
+      </ul>
+
+      <p class="dl-heading">✓ Statistics (Ongoing)</p>
+      <ul class="checklist" data-phase="2">
+        <li class="ci"><input type="checkbox" id="c2_12"><label for="c2_12">Watch StatQuest — Statistics Fundamentals playlist (throughout Weeks 3–10)</label></li>
+        <li class="ci"><input type="checkbox" id="c2_13"><label for="c2_13">Watch StatQuest — Machine Learning playlist (Weeks 6–10)</label></li>
+      </ul>
+
+      <div class="res-section">
+        <p class="res-heading">🔗 Free Resources</p>
+        <div class="res-group">
+          <p class="res-group-lbl">SQL</p>
+          <div class="chips">
+            <a href="https://mode.com/sql-tutorial/" target="_blank" class="chip c-sql">Mode Analytics SQL Tutorial</a>
+            <a href="https://sqliteonline.com" target="_blank" class="chip c-sql">SQLiteOnline — In-Browser Practice</a>
+            <a href="https://www.stratascratch.com" target="_blank" class="chip c-sql">StrataScratch — Real Interview Problems</a>
+            <a href="https://sqlzoo.net" target="_blank" class="chip c-sql">SQLZoo — Interactive Exercises</a>
+            <a href="https://www.w3schools.com/sql/" target="_blank" class="chip c-sql">W3Schools SQL Reference</a>
+          </div>
+        </div>
+        <div class="res-group">
+          <p class="res-group-lbl">Python</p>
+          <div class="chips">
+            <a href="https://www.kaggle.com/learn/python" target="_blank" class="chip c-py">Kaggle Learn — Python</a>
+            <a href="https://www.kaggle.com/learn/pandas" target="_blank" class="chip c-py">Kaggle Learn — Pandas</a>
+            <a href="https://www.kaggle.com/learn/data-visualization" target="_blank" class="chip c-py">Kaggle Learn — Data Viz</a>
+            <a href="https://www.kaggle.com/learn/intro-to-machine-learning" target="_blank" class="chip c-py">Kaggle Learn — Intro to ML</a>
+          </div>
+        </div>
+        <div class="res-group">
+          <p class="res-group-lbl">Power BI &amp; Statistics</p>
+          <div class="chips">
+            <a href="https://learn.microsoft.com/en-us/training/powerplatform/power-bi" target="_blank" class="chip c-pbi">Microsoft Learn — Power BI (Free)</a>
+            <a href="https://www.youtube.com/@statquest" target="_blank" class="chip c-stat">StatQuest YouTube — Josh Starmer</a>
+            <a href="https://www.khanacademy.org/math/statistics-probability" target="_blank" class="chip c-stat">Khan Academy — Statistics</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ══════════ PHASE 3 ══════════ -->
+  <article class="phase-card"
+    style="--pc:var(--p3); --pc-bg:var(--p3-bg)">
+    <div class="phase-header" onclick="toggle(this)">
+      <span class="phase-badge">Phase 03 · Wk 8–18</span>
+      <div class="phase-htext">
+        <div class="phase-title">Portfolio Reconstruction</div>
+        <div class="phase-subtitle">3 Projects · GitHub · Personal Portfolio Site</div>
+      </div>
+      <div class="phase-mini-prog">
+        <span class="phase-mini-pct" id="pp3">0%</span>
+        <div class="mini-track"><div class="mini-fill" id="pb3" style="width:0%"></div></div>
+      </div>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="phase-body">
+      <p class="phase-desc">GitHub is your CV in this field. A recruiter at a health-tech company will check it before reading your cover letter — it's your workshop window showing what you actually build. You already have seeds: the LFT simulation and procurement analysis. This phase polishes what exists and adds one project on real public clinical data to prove you can work beyond your own institution.</p>
+
+      <p class="dl-heading">✓ Project 1 — LFT Simulation (Polish Existing Work)</p>
+      <ul class="checklist" data-phase="3">
+        <li class="ci"><input type="checkbox" id="c3_1"><label for="c3_1">Write a comprehensive README: problem statement, methodology, findings, how to run locally</label></li>
+        <li class="ci"><input type="checkbox" id="c3_2"><label for="c3_2">Record a 3-minute Loom screen walkthrough of the Streamlit app (lftsimulation.streamlit.app)</label></li>
+        <li class="ci"><input type="checkbox" id="c3_3"><label for="c3_3">Embed your preprint DOI (10.21203/rs.3.rs-9423252/v1) prominently in the project description</label></li>
+        <li class="ci"><input type="checkbox" id="c3_4"><label for="c3_4">Push the polished code to a clean, well-named GitHub repository</label></li>
+      </ul>
+
+      <p class="dl-heading">✓ Project 2 — Healthcare Supply Chain Analytics (Extend Existing Work)</p>
+      <ul class="checklist" data-phase="3">
+        <li class="ci"><input type="checkbox" id="c3_5"><label for="c3_5">Restructure St. Michael's 2023–2025 procurement data into anonymised CSV format</label></li>
+        <li class="ci"><input type="checkbox" id="c3_6"><label for="c3_6">Build a Power BI dashboard with supplier performance KPIs (on-time delivery, cost variance, quality)</label></li>
+        <li class="ci"><input type="checkbox" id="c3_7"><label for="c3_7">Add a 6-month demand forecast using Python (simple time series — Holt-Winters or Prophet)</label></li>
+        <li class="ci"><input type="checkbox" id="c3_8"><label for="c3_8">Write a 1-page case study: problem → method → key finding → recommendation</label></li>
+        <li class="ci"><input type="checkbox" id="c3_9"><label for="c3_9">Push to GitHub with a data dictionary explaining all fields</label></li>
+      </ul>
+
+      <p class="dl-heading">✓ Project 3 — Clinical Readmission Prediction (New, Public Data)</p>
+      <ul class="checklist" data-phase="3">
+        <li class="ci"><input type="checkbox" id="c3_10"><label for="c3_10">Register at PhysioNet and download the MIMIC-IV demo dataset (free)</label></li>
+        <li class="ci"><input type="checkbox" id="c3_11"><label for="c3_11">Define a precise clinical question (e.g. "Which ICU patients face 30-day readmission risk?")</label></li>
+        <li class="ci"><input type="checkbox" id="c3_12"><label for="c3_12">Complete a full EDA notebook: missing data audit, distributions, feature correlations</label></li>
+        <li class="ci"><input type="checkbox" id="c3_13"><label for="c3_13">Build a scikit-learn classification pipeline (Logistic Regression + Random Forest)</label></li>
+        <li class="ci"><input type="checkbox" id="c3_14"><label for="c3_14">Evaluate performance: AUC-ROC, confusion matrix, feature importance plot</label></li>
+        <li class="ci"><input type="checkbox" id="c3_15"><label for="c3_15">Create a Streamlit dashboard with clinician-friendly risk visualisations</label></li>
+        <li class="ci"><input type="checkbox" id="c3_16"><label for="c3_16">Push complete project to GitHub (raw patient data excluded; use aggregated outputs only)</label></li>
+      </ul>
+
+      <p class="dl-heading">✓ GitHub Profile &amp; Portfolio Site</p>
+      <ul class="checklist" data-phase="3">
+        <li class="ci"><input type="checkbox" id="c3_17"><label for="c3_17">Set up GitHub profile with professional bio, photo, location, and pinned repositories</label></li>
+        <li class="ci"><input type="checkbox" id="c3_18"><label for="c3_18">Create a GitHub Pages portfolio site (free hosting — no domain needed)</label></li>
+        <li class="ci"><input type="checkbox" id="c3_19"><label for="c3_19">Add all 3 projects to portfolio: titles, screenshots, tech used, live links</label></li>
+        <li class="ci"><input type="checkbox" id="c3_20"><label for="c3_20">Link portfolio site from LinkedIn Featured section</label></li>
+      </ul>
+
+      <div class="res-section">
+        <p class="res-heading">🔗 Free Data Sources &amp; Tools</p>
+        <div class="res-group">
+          <p class="res-group-lbl">Clinical &amp; Public Health Data</p>
+          <div class="chips">
+            <a href="https://physionet.org/content/mimiciv/2.2/" target="_blank" class="chip c-data">MIMIC-IV — Clinical EHR Data (PhysioNet)</a>
+            <a href="https://www.who.int/data/gho" target="_blank" class="chip c-data">WHO Global Health Observatory</a>
+            <a href="https://dhims.mohgov.gh" target="_blank" class="chip c-data">Ghana DHIMS2 — National Health Data</a>
+            <a href="https://data.worldbank.org/topic/health" target="_blank" class="chip c-data">World Bank — Health Datasets</a>
+            <a href="https://healthdata.gov" target="_blank" class="chip c-data">HealthData.gov — US Public Health</a>
+            <a href="https://www.kaggle.com/datasets?search=healthcare" target="_blank" class="chip c-data">Kaggle Healthcare Datasets</a>
+          </div>
+        </div>
+        <div class="res-group">
+          <p class="res-group-lbl">Portfolio Hosting &amp; Tools</p>
+          <div class="chips">
+            <a href="https://github.com" target="_blank" class="chip c-gh">GitHub — Version Control</a>
+            <a href="https://pages.github.com" target="_blank" class="chip c-gh">GitHub Pages — Free Portfolio Hosting</a>
+            <a href="https://share.streamlit.io" target="_blank" class="chip c-py">Streamlit Community Cloud — Free Hosting</a>
+            <a href="https://www.loom.com" target="_blank" class="chip c-gen">Loom — Free Screen Recording</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ══════════ PHASE 4 ══════════ -->
+  <article class="phase-card"
+    style="--pc:var(--p4); --pc-bg:var(--p4-bg)">
+    <div class="phase-header" onclick="toggle(this)">
+      <span class="phase-badge">Phase 04 · Wk 14–24</span>
+      <div class="phase-htext">
+        <div class="phase-title">Job Market Entry</div>
+        <div class="phase-subtitle">Resume · Applications · Networking</div>
+      </div>
+      <div class="phase-mini-prog">
+        <span class="phase-mini-pct" id="pp4">0%</span>
+        <div class="mini-track"><div class="mini-fill" id="pb4" style="width:0%"></div></div>
+      </div>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="phase-body">
+      <p class="phase-desc">Apply to 3–5 targeted roles per week — not 30 generic ones. A tailored application to an organisation whose mission you understand, and whose data challenges you can name, will outperform 20 templated ones every time. Your Research Square preprint is a shortcut past the "prove yourself" stage. Lead with it.</p>
+
+      <p class="dl-heading">✓ Resume &amp; LinkedIn</p>
+      <ul class="checklist" data-phase="4">
+        <li class="ci"><input type="checkbox" id="c4_1"><label for="c4_1">Update CV headline to: <em>"Healthcare Data Analyst | 18 Yrs Clinical Domain + MSc Business &amp; Data Analytics"</em></label></li>
+        <li class="ci"><input type="checkbox" id="c4_2"><label for="c4_2">Quantify every CV achievement with numbers and measurable outcomes</label></li>
+        <li class="ci"><input type="checkbox" id="c4_3"><label for="c4_3">Optimise LinkedIn About section for remote healthcare data roles and global health organisations</label></li>
+        <li class="ci"><input type="checkbox" id="c4_4"><label for="c4_4">Add portfolio projects to LinkedIn Featured section with live links</label></li>
+        <li class="ci"><input type="checkbox" id="c4_5"><label for="c4_5">Publish at least 2 LinkedIn thought leadership posts per month (maintain your existing series)</label></li>
+      </ul>
+
+      <p class="dl-heading">✓ Job Applications</p>
+      <ul class="checklist" data-phase="4">
+        <li class="ci"><input type="checkbox" id="c4_6"><label for="c4_6">Set up saved job alert on LinkedIn: "Healthcare Data Analyst" + "Remote"</label></li>
+        <li class="ci"><input type="checkbox" id="c4_7"><label for="c4_7">Set up alert on We Work Remotely (Data &amp; Analytics category)</label></li>
+        <li class="ci"><input type="checkbox" id="c4_8"><label for="c4_8">Set up email alert on ReliefWeb for data / M&amp;E / analytics in global health</label></li>
+        <li class="ci"><input type="checkbox" id="c4_9"><label for="c4_9">Build a target list of 10 organisations to track and apply to directly (WHO, PATH, MSH, Amref, CHAI, Gavi, etc.)</label></li>
+        <li class="ci"><input type="checkbox" id="c4_10"><label for="c4_10">Create an application tracker spreadsheet: organisation, role, date applied, status, follow-up date</label></li>
+        <li class="ci"><input type="checkbox" id="c4_11"><label for="c4_11">Begin applying to 3–5 targeted roles per week (start no later than Week 16)</label></li>
+      </ul>
+
+      <p class="dl-heading">✓ Networking</p>
+      <ul class="checklist" data-phase="4">
+        <li class="ci"><input type="checkbox" id="c4_12"><label for="c4_12">Connect with 5 healthcare data professionals per week on LinkedIn with a personal note</label></li>
+        <li class="ci"><input type="checkbox" id="c4_13"><label for="c4_13">Reach out to Dr. Enoch Quaye (University of Bristol) for a referral, introduction, or career guidance</label></li>
+        <li class="ci"><input type="checkbox" id="c4_14"><label for="c4_14">Reach out to Dr. Adolf Acquaye (Khalifa University) for connections to health analytics roles</label></li>
+        <li class="ci"><input type="checkbox" id="c4_15"><label for="c4_15">Join 2 online healthcare analytics communities (e.g. HIMSS network, Kaggle health forums)</label></li>
+      </ul>
+
+      <div class="res-section">
+        <p class="res-heading">🔗 Job Boards &amp; Target Organisations</p>
+        <div class="res-group">
+          <p class="res-group-lbl">Remote Job Boards</p>
+          <div class="chips">
+            <a href="https://weworkremotely.com/categories/remote-data-science-jobs" target="_blank" class="chip c-jobs">We Work Remotely — Data Jobs</a>
+            <a href="https://remoteok.com/remote-data-jobs" target="_blank" class="chip c-jobs">RemoteOK — Data &amp; Analytics</a>
+            <a href="https://reliefweb.int/jobs" target="_blank" class="chip c-jobs">ReliefWeb — Global Health Jobs</a>
+            <a href="https://www.idealist.org/en/jobs?q=data+analyst&type=JOB&remote=true" target="_blank" class="chip c-jobs">Idealist — NGO Data Roles</a>
+            <a href="https://careers.who.int" target="_blank" class="chip c-jobs">WHO Careers</a>
+            <a href="https://www.devex.com/jobs" target="_blank" class="chip c-jobs">Devex — Development Sector Jobs</a>
+          </div>
+        </div>
+        <div class="res-group">
+          <p class="res-group-lbl">Target Organisations (Apply Direct)</p>
+          <div class="chips">
+            <a href="https://www.path.org/careers/" target="_blank" class="chip c-gen">PATH</a>
+            <a href="https://www.msh.org/careers" target="_blank" class="chip c-gen">Management Sciences for Health</a>
+            <a href="https://amref.org/careers/" target="_blank" class="chip c-gen">Amref Health Africa</a>
+            <a href="https://www.clintonhealthaccess.org/careers/" target="_blank" class="chip c-gen">Clinton Health Access (CHAI)</a>
+            <a href="https://www.gavi.org/careers" target="_blank" class="chip c-gen">Gavi — Vaccine Alliance</a>
+            <a href="https://jobs.aga-khan.com" target="_blank" class="chip c-gen">Aga Khan Health Services</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ══════════ MILESTONES ══════════ -->
+  <h2 class="section-heading">6-Month Milestone Targets</h2>
+  <div class="ms-grid">
+    <div class="ms-card" style="--mc:var(--p1)">
+      <span class="ms-month">July 2026</span>
+      <p class="ms-text">SQL fundamentals complete · GitHub profile set up · LFT simulation (Project 1) polished and pushed publicly</p>
+    </div>
+    <div class="ms-card" style="--mc:var(--p2)">
+      <span class="ms-month">August 2026</span>
+      <p class="ms-text">Python/pandas confidence restored · Power BI basics complete · Procurement dashboard rebuilt in Python (Project 2 started)</p>
+    </div>
+    <div class="ms-card" style="--mc:var(--p2)">
+      <span class="ms-month">September 2026</span>
+      <p class="ms-text">Project 2 complete on GitHub · LinkedIn thought leadership series active · 2 posts per month published</p>
+    </div>
+    <div class="ms-card" style="--mc:var(--p3)">
+      <span class="ms-month">October 2026</span>
+      <p class="ms-text">MIMIC-IV readmission project (Project 3) complete · GitHub Pages portfolio site live · CV and LinkedIn fully optimised</p>
+    </div>
+    <div class="ms-card" style="--mc:var(--p4)">
+      <span class="ms-month">November 2026</span>
+      <p class="ms-text">Actively applying 3–5 targeted roles per week · Application tracker running · Networking with global health organisations</p>
+    </div>
+    <div class="ms-card" style="--mc:var(--p4)">
+      <span class="ms-month">December 2026</span>
+      <p class="ms-text">First interviews scheduled · First remote offer in sight · Remote healthcare data analyst role within reach</p>
+    </div>
+  </div>
+
+  <!-- ══════════ PRODUCTIVITY HACKS ══════════ -->
+  <h2 class="section-heading">Productivity Hacks for a 9–5 Professional</h2>
+  <div class="hacks-grid">
+    <div class="hack-card">
+      <div class="hack-icon">🌙</div>
+      <div>
+        <div class="hack-title">The Night-Before 10-Minute Plan</div>
+        <p class="hack-desc">Every evening, write 3 specific tasks for tomorrow's session. Not "practice Python" — but "Complete Kaggle pandas lesson 4 and redo the groupby exercise." Decision fatigue is the silent killer of morning productivity.</p>
+      </div>
+    </div>
+    <div class="hack-card">
+      <div class="hack-icon">⏰</div>
+      <div>
+        <div class="hack-title">Protect 6–7:30am Like a Boardroom Meeting</div>
+        <p class="hack-desc">This is your most important learning window. No WhatsApp, no email, no news. Think of it as a standing appointment with the version of you who has the remote job — he's waiting.</p>
+      </div>
+    </div>
+    <div class="hack-card">
+      <div class="hack-icon">🍱</div>
+      <div>
+        <div class="hack-title">Lunch Break = SQL Practice</div>
+        <p class="hack-desc">30 minutes of StrataScratch or SQLZoo every lunch. Consistent 30-minute daily sessions over 6 weeks will outperform sporadic 3-hour weekend cramming every single time.</p>
+      </div>
+    </div>
+    <div class="hack-card">
+      <div class="hack-icon">📤</div>
+      <div>
+        <div class="hack-title">The Friday Commit Rule</div>
+        <p class="hack-desc">Every Friday evening, push something to GitHub — even a half-finished notebook. Public commit history shows recruiters a pattern of consistent, real work. One month of Fridays already beats most applicants.</p>
+      </div>
+    </div>
+    <div class="hack-card">
+      <div class="hack-icon">📋</div>
+      <div>
+        <div class="hack-title">Batch Job Applications — Saturday Morning Only</div>
+        <p class="hack-desc">Block 1.5 hours every Saturday morning exclusively for job search: research roles, tailor CVs, write cover letters, send applications. Batching stops the anxiety bleeding into study time.</p>
+      </div>
+    </div>
+    <div class="hack-card">
+      <div class="hack-icon">📄</div>
+      <div>
+        <div class="hack-title">Your Preprint Is a Door Opener</div>
+        <p class="hack-desc">When reaching out to hiring managers on LinkedIn, reference your Research Square preprint and your Streamlit app. Not everyone applying for healthcare analytics roles has published research in the field. You do.</p>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p>Built for <strong>William Mawunyo Agbo</strong> — Healthcare Data Analytics Career Roadmap · July – December 2026</p>
+  <p>Your progress is saved automatically in this browser. Open this file anytime to continue tracking.</p>
+</footer>
+
+<script>
+/* ===== CONFIG ===== */
+const STORE = 'wma_roadmap_v1';
+
+// All checkbox IDs grouped by phase for per-phase progress
+const PHASES = {
+  '1': ['c1_1','c1_2','c1_3','c1_4','c1_5','c1_6','c1_7'],
+  '2': ['c2_1','c2_2','c2_3','c2_4','c2_5','c2_6','c2_7','c2_8','c2_9','c2_10','c2_11','c2_12','c2_13'],
+  '3': ['c3_1','c3_2','c3_3','c3_4','c3_5','c3_6','c3_7','c3_8','c3_9','c3_10','c3_11','c3_12','c3_13','c3_14','c3_15','c3_16','c3_17','c3_18','c3_19','c3_20'],
+  '4': ['c4_1','c4_2','c4_3','c4_4','c4_5','c4_6','c4_7','c4_8','c4_9','c4_10','c4_11','c4_12','c4_13','c4_14','c4_15']
+};
+// Circumference for r=63: 2 * Math.PI * 63 ≈ 395.84
+const CIRC = 395.84;
+
+/* ===== HELPERS ===== */
+function allBoxes() {
+  return document.querySelectorAll('input[type="checkbox"]');
+}
+function box(id) { return document.getElementById(id); }
+
+/* ===== LOAD ===== */
+function load() {
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem(STORE) || '{}'); } catch(e){}
+  allBoxes().forEach(cb => {
+    if (saved[cb.id]) {
+      cb.checked = true;
+      cb.closest('.ci').classList.add('done');
+    }
+  });
+  refresh();
+}
+
+/* ===== SAVE ===== */
+function save() {
+  const state = {};
+  allBoxes().forEach(cb => { state[cb.id] = cb.checked; });
+  try { localStorage.setItem(STORE, JSON.stringify(state)); } catch(e){}
+}
+
+/* ===== REFRESH PROGRESS ===== */
+function refresh() {
+  // Global
+  const all = Array.from(allBoxes());
+  const total = all.length;
+  const done  = all.filter(c => c.checked).length;
+  const pct   = total ? Math.round((done / total) * 100) : 0;
+  const offset = CIRC - (pct / 100) * CIRC;
+
+  document.getElementById('ringFill').style.strokeDashoffset = offset;
+  document.getElementById('ringPct').textContent = pct + '%';
+  document.getElementById('doneCount').textContent = done;
+  document.getElementById('totalCount').textContent = total;
+
+  // Per-phase
+  for (const [ph, ids] of Object.entries(PHASES)) {
+    const pTotal = ids.length;
+    const pDone  = ids.filter(id => { const el = box(id); return el && el.checked; }).length;
+    const pPct   = pTotal ? Math.round((pDone / pTotal) * 100) : 0;
+    const pctEl  = document.getElementById('pp' + ph);
+    const barEl  = document.getElementById('pb' + ph);
+    if (pctEl) pctEl.textContent = pPct + '%';
+    if (barEl) barEl.style.width = pPct + '%';
+  }
+}
+
+/* ===== BIND CHECKBOXES ===== */
+document.addEventListener('change', e => {
+  if (e.target.type !== 'checkbox') return;
+  const item = e.target.closest('.ci');
+  if (item) item.classList.toggle('done', e.target.checked);
+  save();
+  refresh();
+});
+
+/* ===== ACCORDION ===== */
+function toggle(header) {
+  header.closest('.phase-card').classList.toggle('open');
+}
+
+/* ===== INIT ===== */
+load();
+</script>
+</body>
+</html>
