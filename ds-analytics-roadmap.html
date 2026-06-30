@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Science & Analytics Essentials — Learning Roadmap</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:         #080F1C;
+  --bg-card:    #0E1C30;
+  --bg-card-h:  #122139;
+  --text-hi:    #EEF4FF;
+  --text-mid:   #7A9BBF;
+  --text-lo:    #3A526A;
+  --border:     rgba(255,255,255,0.07);
+  --node-size:  60px;
+  --gap:        28px;
+
+  --c1: #3B82F6; --c1g: rgba(59,130,246,.12);
+  --c2: #22C55E; --c2g: rgba(34,197,94,.12);
+  --c3: #F59E0B; --c3g: rgba(245,158,11,.12);
+  --c4: #A855F7; --c4g: rgba(168,85,247,.12);
+  --c5: #00C9A7; --c5g: rgba(0,201,167,.12);
+  --c6: #F43F5E; --c6g: rgba(244,63,94,.12);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-hi);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Subtle dot-grid background */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ambient glow top */
+body::after {
+  content: '';
+  position: fixed;
+  top: -200px; left: 50%;
+  transform: translateX(-50%);
+  width: 600px; height: 400px;
+  background: radial-gradient(ellipse at center, rgba(59,130,246,0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.page {
+  position: relative;
+  z-index: 1;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 56px 20px 80px;
+}
+
+/* ─── HEADER ─── */
+.header { text-align: center; margin-bottom: 64px; }
+
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: #3B82F6; margin-bottom: 20px;
+}
+.eyebrow::before, .eyebrow::after {
+  content: ''; display: block;
+  width: 36px; height: 1px;
+  background: linear-gradient(90deg, transparent, #3B82F6);
+}
+.eyebrow::after { background: linear-gradient(90deg, #3B82F6, transparent); }
+
+h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(30px, 5.5vw, 52px);
+  font-weight: 700; line-height: 1.1;
+  margin-bottom: 18px;
+  letter-spacing: -0.5px;
+}
+h1 em { font-style: normal; color: #3B82F6; }
+
+.tagline {
+  font-size: 15px; color: var(--text-mid);
+  max-width: 480px; margin: 0 auto 36px;
+  line-height: 1.65;
+}
+
+/* Stats pills */
+.stats {
+  display: flex; justify-content: center;
+  gap: 12px; flex-wrap: wrap;
+}
+.stat-pill {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 18px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  font-size: 13px; color: var(--text-mid);
+}
+.stat-pill strong {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600; color: var(--text-hi);
+}
+
+/* ─── TIMELINE WRAPPER ─── */
+.timeline {
+  position: relative;
+  padding: 20px 0 10px;
+}
+
+/* The vertical centre line */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%; top: 0; bottom: 0;
+  width: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg,
+    transparent 0%,
+    rgba(59,130,246,0.4) 6%,
+    rgba(59,130,246,0.4) 94%,
+    transparent 100%);
+}
+
+/* Animated data-packet travelling the line — the signature element */
+.data-packet {
+  position: absolute;
+  left: 50%; top: 0;
+  transform: translateX(-50%);
+  width: 3px; height: 48px;
+  background: linear-gradient(180deg, transparent, #3B82F6 40%, #00C9A7 60%, transparent);
+  border-radius: 2px;
+  animation: travel 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes travel {
+  0%   { top: -50px; opacity: 0; }
+  8%   { opacity: 1; }
+  92%  { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+/* ─── MODULE ITEM (grid layout) ─── */
+.module-item {
+  display: grid;
+  grid-template-columns: 1fr var(--node-size) 1fr;
+  gap: 0 var(--gap);
+  margin-bottom: 44px;
+  align-items: start;
+}
+
+/* Node always in centre column */
+.module-node {
+  grid-column: 2;
+  grid-row: 1;
+  width: var(--node-size); height: var(--node-size);
+  border-radius: 14px;
+  border: 1.5px solid currentColor;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px;
+  position: relative; z-index: 2;
+  background: var(--bg);
+  box-shadow: 0 0 0 6px var(--bg), 0 0 24px currentColor;
+  flex-shrink: 0;
+  transition: transform 0.25s;
+}
+.module-item:hover .module-node { transform: scale(1.08); }
+
+/* Card — odd items: column 1 (left); even: column 3 (right) */
+.module-card {
+  grid-row: 1;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 22px 22px 18px;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.module-card:hover {
+  background: var(--bg-card-h);
+  transform: translateY(-2px);
+}
+
+/* Odd: card on left */
+.module-item:nth-child(odd) .module-card   { grid-column: 1; }
+/* Even: card on right */
+.module-item:nth-child(even) .module-card  { grid-column: 3; }
+
+/* Card typography */
+.mod-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--text-lo); margin-bottom: 6px;
+}
+.mod-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px; font-weight: 600; line-height: 1.25;
+  margin-bottom: 8px;
+}
+.mod-desc {
+  font-size: 12.5px; color: var(--text-mid);
+  line-height: 1.6; margin-bottom: 14px;
+}
+
+/* Skills chips */
+.skills { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 16px; }
+.chip {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px; letter-spacing: 0.3px;
+  padding: 3px 8px;
+  border-radius: 5px;
+  background: transparent;
+  border: 1px solid currentColor;
+  opacity: 0.7;
+}
+
+/* Divider */
+.rule { height: 1px; background: var(--border); margin-bottom: 14px; }
+
+/* Course links */
+.courses-heading {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8.5px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--text-lo); margin-bottom: 8px;
+}
+
+.course-link {
+  display: flex; align-items: center; gap: 9px;
+  text-decoration: none;
+  padding: 7px 8px;
+  border-radius: 9px;
+  border: 1px solid transparent;
+  transition: background 0.15s, border-color 0.15s;
+  margin-bottom: 4px;
+}
+.course-link:hover {
+  background: rgba(255,255,255,0.04);
+  border-color: var(--border);
+}
+.course-link:last-child { margin-bottom: 0; }
+
+.cl-icon {
+  width: 26px; height: 26px;
+  border-radius: 7px;
+  background: rgba(255,255,255,0.06);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; flex-shrink: 0;
+}
+
+.cl-text { flex: 1; min-width: 0; }
+.cl-platform {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px; letter-spacing: 0.5px;
+  color: var(--text-lo); display: block;
+}
+.cl-name {
+  font-size: 11.5px; font-weight: 500;
+  color: var(--text-mid);
+  display: block; line-height: 1.3;
+  white-space: nowrap; overflow: hidden;
+  text-overflow: ellipsis;
+}
+.course-link:hover .cl-name { color: var(--text-hi); }
+
+.free-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8.5px; padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(34,197,94,0.1);
+  border: 1px solid rgba(34,197,94,0.3);
+  color: #22c55e;
+  flex-shrink: 0;
+}
+
+/* ─── PER-MODULE COLOURS ─── */
+/* M1 Blue */
+.m1 .module-node { color: var(--c1); box-shadow: 0 0 0 6px var(--bg), 0 0 24px var(--c1); }
+.m1 .module-card:hover { border-color: rgba(59,130,246,.25); box-shadow: 0 8px 32px var(--c1g); }
+.m1 .mod-label { color: var(--c1); opacity: .6; }
+.m1 .mod-title { color: var(--text-hi); }
+.m1 .chip { color: var(--c1); border-color: var(--c1); background: var(--c1g); }
+
+/* M2 Green */
+.m2 .module-node { color: var(--c2); box-shadow: 0 0 0 6px var(--bg), 0 0 24px var(--c2); }
+.m2 .module-card:hover { border-color: rgba(34,197,94,.25); box-shadow: 0 8px 32px var(--c2g); }
+.m2 .mod-label { color: var(--c2); opacity: .6; }
+.m2 .chip { color: var(--c2); border-color: var(--c2); background: var(--c2g); }
+
+/* M3 Amber */
+.m3 .module-node { color: var(--c3); box-shadow: 0 0 0 6px var(--bg), 0 0 24px var(--c3); }
+.m3 .module-card:hover { border-color: rgba(245,158,11,.25); box-shadow: 0 8px 32px var(--c3g); }
+.m3 .mod-label { color: var(--c3); opacity: .6; }
+.m3 .chip { color: var(--c3); border-color: var(--c3); background: var(--c3g); }
+
+/* M4 Purple */
+.m4 .module-node { color: var(--c4); box-shadow: 0 0 0 6px var(--bg), 0 0 24px var(--c4); }
+.m4 .module-card:hover { border-color: rgba(168,85,247,.25); box-shadow: 0 8px 32px var(--c4g); }
+.m4 .mod-label { color: var(--c4); opacity: .6; }
+.m4 .chip { color: var(--c4); border-color: var(--c4); background: var(--c4g); }
+
+/* M5 Teal */
+.m5 .module-node { color: var(--c5); box-shadow: 0 0 0 6px var(--bg), 0 0 24px var(--c5); }
+.m5 .module-card:hover { border-color: rgba(0,201,167,.25); box-shadow: 0 8px 32px var(--c5g); }
+.m5 .mod-label { color: var(--c5); opacity: .6; }
+.m5 .chip { color: var(--c5); border-color: var(--c5); background: var(--c5g); }
+
+/* M6 Rose */
+.m6 .module-node { color: var(--c6); box-shadow: 0 0 0 6px var(--bg), 0 0 24px var(--c6); }
+.m6 .module-card:hover { border-color: rgba(244,63,94,.25); box-shadow: 0 8px 32px var(--c6g); }
+.m6 .mod-label { color: var(--c6); opacity: .6; }
+.m6 .chip { color: var(--c6); border-color: var(--c6); background: var(--c6g); }
+
+/* ─── FOOTER ─── */
+.footer {
+  text-align: center;
+  margin-top: 56px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+.finish-badge {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 14px 32px;
+  background: linear-gradient(135deg,rgba(59,130,246,.1),rgba(0,201,167,.1));
+  border: 1px solid rgba(59,130,246,.3);
+  border-radius: 100px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px; font-weight: 600;
+  color: var(--text-hi);
+}
+.footer-sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; color: var(--text-lo);
+  margin-top: 16px; letter-spacing: 1px;
+}
+
+/* ─── MOBILE ─── */
+@media (max-width: 660px) {
+  .timeline::before { left: 22px; }
+  .data-packet { left: 22px; }
+
+  .module-item {
+    display: flex; flex-direction: row;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .module-node {
+    width: 44px !important; height: 44px !important;
+    min-width: 44px;
+    border-radius: 11px;
+    font-size: 20px;
+    box-shadow: 0 0 0 4px var(--bg), 0 0 16px currentColor !important;
+    order: 0;
+  }
+
+  .module-card {
+    order: 1;
+    width: 100%;
+    grid-column: unset !important;
+  }
+
+  .module-item:nth-child(even) { flex-direction: row; }
+
+  .stats { gap: 8px; }
+  .stat-pill { font-size: 11px; padding: 6px 13px; }
+}
+
+@media (max-width: 400px) {
+  h1 { font-size: 26px; }
+  .module-card { padding: 16px 14px 14px; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ─── HEADER ─── -->
+  <header class="header">
+    <div class="eyebrow">Learning Roadmap</div>
+    <h1>Data Science &amp;<br><em>Analytics Essentials</em></h1>
+    <p class="tagline">Six sequential modules — from raw data to a job-ready portfolio. All linked resources are free or audit-accessible.</p>
+    <div class="stats">
+      <div class="stat-pill"><strong>6</strong> Modules</div>
+      <div class="stat-pill"><strong>18+</strong> Free Resources</div>
+      <div class="stat-pill"><strong>5</strong> Industry Tools</div>
+      <div class="stat-pill"><strong>Self-paced</strong></div>
+    </div>
+  </header>
+
+  <!-- ─── TIMELINE ─── -->
+  <div class="timeline">
+    <div class="data-packet"></div>
+
+    <!-- MODULE 1 ─ Data Collection & Cleaning -->
+    <div class="module-item m1">
+      <div class="module-node">🔍</div>
+      <div class="module-card">
+        <div class="mod-label">Module 01 · Foundation</div>
+        <div class="mod-title">Data Collection &amp; Cleaning</div>
+        <div class="mod-desc">Learn to identify and gather data from diverse sources, then wrangle it into analysis-ready form — handling missing values, duplicates, and inconsistencies.</div>
+        <div class="skills">
+          <span class="chip">Data Sources</span>
+          <span class="chip">Missing Values</span>
+          <span class="chip">Outlier Detection</span>
+          <span class="chip">Data Types</span>
+          <span class="chip">ETL Basics</span>
+        </div>
+        <div class="rule"></div>
+        <div class="courses-heading">Free Courses</div>
+        <a href="https://www.kaggle.com/learn/data-cleaning" target="_blank" rel="noopener noreferrer" class="course-link">
+          <div class="cl-icon">🐾</div>
+          <div class="cl-text">
+            <span class="cl-platform">Kaggle Learn</span>
+            <span class="cl-name">Data Cleaning (Hands-on)</span>
+          </div>
+          <span class="free-tag">FREE</span>
+        </a>
+        <a href="https://www.coursera.org/professional-certificates/google-data-analytics" target="_blank" rel="noopener noreferrer" class="course-link">
+          <div class="cl-icon">🎓</div>
+          <div class="cl-text">
+            <span class="cl-platform">Coursera · Google</span>
+            <span class="cl-name">Google Data Analytics Certificate</span>
+          </div>
+          <span class="free-tag">AUDIT</span>
+        </a>
+        <a href="https://www.youtube.com/watch?v=bDhvCp3_lYw" target="_blank" rel="noopener noreferrer" class="course-link">
+          <div class="cl-icon">▶️</div>
+          <div class="cl-text">
+            <span class="cl-platform">YouTube · Alex The Analyst</span>
+            <span class="cl-name">Data Analyst Bootcamp (Full Course)</span>
+          </div>
+          <span class="free-tag">FREE</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- MODULE 2 ─ Excel -->
+    <div class="module-item m2">
+      <div class="module-node">📊</div>
+      <div class="module-card">
+        <div class="mod-label">Module 02 · Core Tool</div>
+        <div class="mod-title">Excel &amp; Data Wrangling</div>
+        <div class="mod-desc">Master Excel's full data toolkit — pivot tables, Power Query, lookup functions, conditional formatting, and building clean summary reports at scale.</div>
+        <div class="skills">
+          <span class="chip">Pivot Tables</span>
+          <span class="chip">VLOOKUP / XLOOKUP</span>
+          <span class="chip">Power Query</span>
+          <span class="chip">Data Validation</span>
+          <span class="chip">Charts</span>
+        </div>
+        <div class="rule"></div>
+        <div class="courses-heading">Free Courses</div>
+        <a href="https://edu.gcfglobal.org/en/excel/" target="_blank" rel="noopener noreferrer" class="course-link">
+          <div class="cl-icon">📖</div>
+          <div class="cl-text">
+            <span class="cl-platform">GCFGlobal</span>
+            <span class="cl-name">Excel – Beginner to Advanced</span>
+          </div>
+          <span class="free-tag">FREE</span>
+        </a>
+        <a href="https://www.coursera.org/learn/excel-skills-for-business-essentials" target="_blank" rel="noopener noreferrer" class="course-link">
+          <div class="cl-icon">🎓</div>
+          <div class="cl-text">
+            <span class="cl-platform">Coursera · Macquarie University</span>
+            <span class="cl-name">Excel Skills for Business: Essentials</span>
+          </div>
+          <span class="free-tag">AUDIT</span>
+        </a>
+        <a href="https://www.youtube.com/@LeilaGharani" target="_blank" rel="noopener noreferrer" class="course-link">
+          <div class="cl-icon">▶️</div>
+          <div class="cl-text">
+            <span class="cl-platform">YouTube · Leila Gharani</span>
+            <span class="cl-name">Excel &amp; Power Query Tutorials</span>
+          </div>
+          <span class="free-tag">FREE</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- MODULE 3 ─ Power BI -->
+    <div class="module-item m3">
+      <div class="module-node">📈</div>
+      <div class="module-card">
+        <div class="mod-label">Module 03 · Visualisation</div>
+        <div class="mod-title">Power BI Dashboards</div>
+        <div class="mod-desc">Build interactive, drill-through dashboards that turn raw business figures into visual stories — from data import and modelling to DAX measures and published reports.</div>
+        <div class="skills">
+          <span class="chip">DAX</span>
+          <span class="chip">Data Modelling</span>
+          <span class="chip">Visuals &amp; Slicers</span>
+          <span class="chip">Relationships</span>
+          <span class="chip">Publish &amp; Share</span>
+        </div>
+        <div class="rule"></div>
+        <div class="courses-heading">Free Courses</div>
+        <a href="https://learn.microsoft.com/en-us/training/powerplatform/power-bi" target="_blank" rel="noopener noreferrer" class="course-link">
+          <div class="cl-icon">🪟</div>
+          <div class="cl-text">
+            <span class="cl-platform">Microsoft Learn</span>
+            <span class="cl-name">Power BI Official Learning Path</span>
+          </div>
+          <span class="free-tag">FREE</span>
+        </a>
+        <a href="https://www.youtube.com/c/GuyInACube" target="_blank" rel="noopener noreferrer" class="course-link">
+          <div class="cl-icon">▶️</div>
+          <div class="cl-text">
+            <span class="cl-platform">YouTube</span>
+            <span class="cl-name">Guy in a Cube – Power BI Channel</span>
+          </div>
+          <span class="free-tag">FREE</span>
+        </a>
+        <a href="https://www.youtube.com/@EnterpriseDNA" target="_blank" rel="noopener noreferrer" class="course-link">
+          <div class="cl-icon">▶️</div>
+          <div class="cl-text">
+            <span class="cl-platform">YouTube · Enterprise DNA</span>
+            <span class="cl-name">Power BI &amp; DAX Deep Dives</span>
+          </div>
+          <span class="free-tag">FREE</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- MODULE 4 ─ SQL -->
+    <div class="module-item m4">
+      <div class="module-node">🗄️</div>
+      <div class="module-card">
+        <div class="mod-label">Module 04 · Databases</div>
+        <div class="mod-title">SQL &amp; Databases</div>
+        <div class="mod-desc">Write SQL to retrieve, filter, join, and aggregate data from relational databases — the universal language every analyst needs regardless of industry.</div>
+        <div class="skills">
+          <span class="chip">SELECT / WHERE</span>
+          <span class="chip">JOINs</span>
+          <span class="chip">GROUP BY</span>
+          <span class="chip">Subqueries</span>
+          <span class="chip">Window Functions</span>
+        </div>
+        <div class="rule"></div>
+        <div class="courses-heading">Free Courses</div>
+        <a href="https://sqlzoo.net/" target="_blank" rel="noopener noreferrer" class="course-link">
+          <div class="cl-icon">🐘</div>
+          <div class="cl-text">
+            <span class="cl-platform">SQLZoo</span>
+            <span class="cl-name">Interactive SQL Tutorial</span>
+          </div>
+          <span class="free-tag">FREE</span>
+        </a>
+        <a href="https://mode.com/sql-tutorial/" target="_blank" rel="noopener noreferrer" class="course-link">
+          <div class="cl-icon">📋</div>
+          <div class="cl-text">
+            <span class="cl-platform">Mode Analytics</span>
+            <span class="cl-name">SQL Tutorial for Data Analysis</span>
+          </div>
+          <span class="free-tag">FREE</span>
+        </a>
+        <a href="https://www.w3schools.com/sql/" target="_blank" rel="noopener noreferrer" class="course-link">
+          <div class="cl-icon">🌐</div>
+          <div class="cl-text">
+            <span class="cl-platform">W3Schools</span>
+            <span class="cl-name">SQL Full Reference &amp; Practice</span>
+          </div>
+          <span class="free-tag">FREE</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- MODULE 5 ─ Python -->
+    <div class="module-item m5">
+      <div class="module-node">🐍</div>
+      <div class="module-card">
+        <div class="mod-label">Module 05 · Programming</div>
+        <div class="mod-title">Python for Data Analysis</div>
+        <div class="mod-desc">Build Python fluency with pandas, NumPy, and Matplotlib — moving from spreadsheets to code-driven analysis that scales across millions of records effortlessly.</div>
+        <div class="skills">
+          <span class="chip">pandas</span>
+          <span class="chip">NumPy</span>
+          <span class="chip">Matplotlib</span>
+          <span class="chip">Seaborn</span>
+          <span class="chip">Jupyter Notebooks</span>
+        </div>
+        <div class="rule"></div>
+        <div class="courses-heading">Free Courses</div>
+        <a href="https://www.kaggle.com/learn/python" target="_blank" rel="noopener noreferrer" class="course-link">
+          <div class="cl-icon">🐾</div>
+          <div class="cl-text">
+            <span class="cl-platform">Kaggle Learn</span>
+            <span class="cl-name">Python for Machine Learning</span>
+          </div>
+          <span class="free-tag">FREE</span>
+        </a>
+        <a href="https://cs50.harvard.edu/python/2022/" target="_blank" rel="noopener noreferrer" class="course-link">
+          <div class="cl-icon">🎓</div>
+          <div class="cl-text">
+            <span class="cl-platform">Harvard / edX</span>
+            <span class="cl-name">CS50's Introduction to Python (CS50P)</span>
+          </div>
+          <span class="free-tag">FREE</span>
+        </a>
+        <a href="https://www.kaggle.com/learn/pandas" target="_blank" rel="noopener noreferrer" class="course-link">
+          <div class="cl-icon">🐾</div>
+          <div class="cl-text">
+            <span class="cl-platform">Kaggle Learn</span>
+            <span class="cl-name">Pandas for Data Analysis</span>
+          </div>
+          <span class="free-tag">FREE</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- MODULE 6 ─ Git & Portfolio -->
+    <div class="module-item m6">
+      <div class="module-node">🔧</div>
+      <div class="module-card">
+        <div class="mod-label">Module 06 · Career Ready</div>
+        <div class="mod-title">Git &amp; Portfolio Building</div>
+        <div class="mod-desc">Use Git and GitHub to version-control your projects, collaborate on code, and build a public portfolio — the final proof of work that makes employers take notice.</div>
+        <div class="skills">
+          <span class="chip">Git CLI</span>
+          <span class="chip">Branching &amp; Merging</span>
+          <span class="chip">GitHub</span>
+          <span class="chip">README Writing</span>
+          <span class="chip">Portfolio Projects</span>
+        </div>
+        <div class="rule"></div>
+        <div class="courses-heading">Free Courses</div>
+        <a href="https://skills.github.com/" target="_blank" rel="noopener noreferrer" class="course-link">
+          <div class="cl-icon">🐙</div>
+          <div class="cl-text">
+            <span class="cl-platform">GitHub</span>
+            <span class="cl-name">GitHub Skills – Hands-on Labs</span>
+          </div>
+          <span class="free-tag">FREE</span>
+        </a>
+        <a href="https://www.atlassian.com/git/tutorials" target="_blank" rel="noopener noreferrer" class="course-link">
+          <div class="cl-icon">🔵</div>
+          <div class="cl-text">
+            <span class="cl-platform">Atlassian</span>
+            <span class="cl-name">Git Tutorials &amp; Workflows</span>
+          </div>
+          <span class="free-tag">FREE</span>
+        </a>
+        <a href="https://git-scm.com/book/en/v2" target="_blank" rel="noopener noreferrer" class="course-link">
+          <div class="cl-icon">📚</div>
+          <div class="cl-text">
+            <span class="cl-platform">Git Official</span>
+            <span class="cl-name">Pro Git Book (Free Online)</span>
+          </div>
+          <span class="free-tag">FREE</span>
+        </a>
+      </div>
+    </div>
+
+  </div><!-- /timeline -->
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="footer">
+    <div class="finish-badge">
+      🎯&nbsp; Complete all 6 modules → Job-Ready Data Analyst
+    </div>
+    <p class="footer-sub">// Data Science &amp; Analytics Essentials · Self-paced · 18+ free resources</p>
+  </footer>
+
+</div><!-- /page -->
+</body>
+</html>
