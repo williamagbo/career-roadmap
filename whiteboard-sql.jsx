@@ -140,18 +140,18 @@ const ic = (style={}) => ({ flexShrink:0, ...style });
 function SchemaTable({ t }) {
   return (
     <div style={{ marginBottom:14 }}>
-      <div style={{ fontFamily:"var(--font-mono)", fontSize:12, fontWeight:500, color:"var(--text-accent)", marginBottom:6 }}>{t.name}</div>
+      <div style={{ fontFamily:'JetBrains Mono, Consolas, monospace', fontSize:12, fontWeight:500, color:"#0D9488", marginBottom:6 }}>{t.name}</div>
       <div style={{ overflowX:"auto" }}>
-        <table style={{ borderCollapse:"collapse", fontSize:12, fontFamily:"var(--font-mono)", width:"100%" }}>
+        <table style={{ borderCollapse:"collapse", fontSize:12, fontFamily:'JetBrains Mono, Consolas, monospace', width:"100%" }}>
           <thead>
             <tr>{t.cols.map((c,i)=>(
-              <th key={i} style={{ padding:"5px 10px", textAlign:"left", background:"var(--surface-1)", borderBottom:"0.5px solid var(--border)", color:"var(--text-secondary)", fontWeight:500, whiteSpace:"nowrap" }}>{c}</th>
+              <th key={i} style={{ padding:"5px 10px", textAlign:"left", background:"#F8FAFC", borderBottom:"0.5px solid #E2E8F0", color:"#475569", fontWeight:500, whiteSpace:"nowrap" }}>{c}</th>
             ))}</tr>
           </thead>
           <tbody>
             {t.rows.map((row,ri)=>(
               <tr key={ri}>{row.map((cell,ci)=>(
-                <td key={ci} style={{ padding:"4px 10px", borderBottom:"0.5px solid var(--border)", color:"var(--text-primary)" }}>{String(cell)}</td>
+                <td key={ci} style={{ padding:"4px 10px", borderBottom:"0.5px solid #E2E8F0", color:"#1E293B" }}>{String(cell)}</td>
               ))}</tr>
             ))}
           </tbody>
@@ -163,11 +163,11 @@ function SchemaTable({ t }) {
 
 function Nofly() {
   return (
-    <div style={{ background:"var(--bg-danger)", border:"0.5px solid var(--border-danger)", borderRadius:8, padding:"10px 14px", marginBottom:14, display:"flex", gap:10, alignItems:"flex-start" }}>
-      <Ban size={16} style={{ color:"var(--text-danger)", marginTop:2, ...ic() }} aria-hidden="true" />
+    <div style={{ background:"#FEF2F2", border:"0.5px solid #FECACA", borderRadius:8, padding:"10px 14px", marginBottom:14, display:"flex", gap:10, alignItems:"flex-start" }}>
+      <Ban size={16} style={{ color:"#DC2626", marginTop:2, ...ic() }} aria-hidden="true" />
       <div>
-        <div style={{ fontSize:13, fontWeight:500, color:"var(--text-danger)", marginBottom:2 }}>No-fly zone</div>
-        <div style={{ fontSize:12, color:"var(--text-danger)", opacity:.85 }}>No documentation. No SQL editor. No AI. No autocomplete. Just you and the problem — exactly like a real interview.</div>
+        <div style={{ fontSize:13, fontWeight:500, color:"#DC2626", marginBottom:2 }}>No-fly zone</div>
+        <div style={{ fontSize:12, color:"#DC2626", opacity:.85 }}>No documentation. No SQL editor. No AI. No autocomplete. Just you and the problem — exactly like a real interview.</div>
       </div>
     </div>
   );
@@ -175,9 +175,9 @@ function Nofly() {
 
 function VoiceBar({ text }) {
   return (
-    <div style={{ background:"var(--bg-accent)", border:"0.5px solid var(--border-accent)", borderRadius:8, padding:"10px 14px", marginBottom:14, display:"flex", gap:10, alignItems:"flex-start" }}>
-      <Mic size={16} style={{ color:"var(--text-accent)", marginTop:2, ...ic() }} aria-hidden="true" />
-      <div style={{ fontSize:12, color:"var(--text-accent)", lineHeight:1.6 }}>{text}</div>
+    <div style={{ background:"#F0FDFA", border:"0.5px solid #99F6E4", borderRadius:8, padding:"10px 14px", marginBottom:14, display:"flex", gap:10, alignItems:"flex-start" }}>
+      <Mic size={16} style={{ color:"#0D9488", marginTop:2, ...ic() }} aria-hidden="true" />
+      <div style={{ fontSize:12, color:"#0D9488", lineHeight:1.6 }}>{text}</div>
     </div>
   );
 }
@@ -186,16 +186,16 @@ function Score({ n, label }) {
   const role = n>=8?"success":n>=6?"warning":"danger";
   return (
     <div style={{ textAlign:"center" }}>
-      <div style={{ fontSize:28, fontWeight:500, color:`var(--text-${role})`, lineHeight:1 }}>{n}<span style={{ fontSize:14, color:"var(--text-muted)" }}>/10</span></div>
-      <div style={{ fontSize:11, color:"var(--text-muted)", marginTop:3 }}>{label}</div>
+      <div style={{ fontSize:28, fontWeight:500, color:`var(--text-${role})`, lineHeight:1 }}>{n}<span style={{ fontSize:14, color:"#94A3B8" }}>/10</span></div>
+      <div style={{ fontSize:11, color:"#94A3B8", marginTop:3 }}>{label}</div>
     </div>
   );
 }
 
 function Btn({ onClick, disabled, children, variant="primary", style={} }) {
-  const base = { border:"none", borderRadius:"var(--radius)", padding:"9px 18px", fontSize:14, fontWeight:500, cursor:disabled?"not-allowed":"pointer", display:"inline-flex", alignItems:"center", gap:6, ...style };
-  if (variant==="primary") return <button onClick={onClick} disabled={disabled} style={{ ...base, background:disabled?"var(--fill-disabled)":"var(--fill-accent)", color:disabled?"var(--text-disabled)":"var(--on-accent)" }}>{children}</button>;
-  return <button onClick={onClick} style={{ ...base, background:"transparent", color:"var(--text-secondary)", border:"0.5px solid var(--border)" }}>{children}</button>;
+  const base = { border:"none", borderRadius:"8px", padding:"9px 18px", fontSize:14, fontWeight:500, cursor:disabled?"not-allowed":"pointer", display:"inline-flex", alignItems:"center", gap:6, ...style };
+  if (variant==="primary") return <button onClick={onClick} disabled={disabled} style={{ ...base, background:disabled?"#E2E8F0":"#0D9488", color:disabled?"#94A3B8":"#FFFFFF" }}>{children}</button>;
+  return <button onClick={onClick} style={{ ...base, background:"transparent", color:"#475569", border:"0.5px solid #E2E8F0" }}>{children}</button>;
 }
 
 function IntroStep({ p, score, onStart }) {
@@ -205,41 +205,41 @@ function IntroStep({ p, score, onStart }) {
       <div style={{ display:"flex", alignItems:"flex-start", justifyContent:"space-between", marginBottom:16, gap:16 }}>
         <div style={{ flex:1 }}>
           <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:8 }}>
-            <span style={{ background:`var(--bg-${role})`, color:`var(--text-${role})`, border:`0.5px solid var(--border-${role})`, borderRadius:"var(--radius)", padding:"2px 10px", fontSize:11, fontWeight:500 }}>{p.diff}</span>
-            <span style={{ fontFamily:"var(--font-mono)", fontSize:12, color:"var(--text-muted)" }}>#{pad2(p.id)} of 10</span>
+            <span style={{ background:`var(--bg-${role})`, color:`var(--text-${role})`, border:`0.5px solid var(--border-${role})`, borderRadius:"8px", padding:"2px 10px", fontSize:11, fontWeight:500 }}>{p.diff}</span>
+            <span style={{ fontFamily:'JetBrains Mono, Consolas, monospace', fontSize:12, color:"#94A3B8" }}>#{pad2(p.id)} of 10</span>
           </div>
           <div style={{ fontSize:17, fontWeight:500, marginBottom:6 }}>{p.title}</div>
-          <div style={{ fontSize:13, color:"var(--text-secondary)", lineHeight:1.65 }}>{p.context}</div>
+          <div style={{ fontSize:13, color:"#475569", lineHeight:1.65 }}>{p.context}</div>
         </div>
         {score && (
-          <div style={{ background:"var(--surface-1)", border:"0.5px solid var(--border)", borderRadius:12, padding:"12px 16px", textAlign:"center", flexShrink:0 }}>
-            <div style={{ fontSize:11, color:"var(--text-muted)", marginBottom:4, fontFamily:"var(--font-mono)" }}>your best</div>
-            <div style={{ fontSize:22, fontWeight:500, color:score.passed?"var(--text-success)":"var(--text-warning)" }}>{score.sql_score}/10</div>
-            {score.passed&&<div style={{ fontSize:11, color:"var(--text-success)" }}>passed ✓</div>}
-            {score.time&&<div style={{ fontSize:11, color:"var(--text-muted)", fontFamily:"var(--font-mono)", marginTop:2 }}>{fmt(score.time)}</div>}
+          <div style={{ background:"#F8FAFC", border:"0.5px solid #E2E8F0", borderRadius:12, padding:"12px 16px", textAlign:"center", flexShrink:0 }}>
+            <div style={{ fontSize:11, color:"#94A3B8", marginBottom:4, fontFamily:'JetBrains Mono, Consolas, monospace' }}>your best</div>
+            <div style={{ fontSize:22, fontWeight:500, color:score.passed?"#059669":"#D97706" }}>{score.sql_score}/10</div>
+            {score.passed&&<div style={{ fontSize:11, color:"#059669" }}>passed ✓</div>}
+            {score.time&&<div style={{ fontSize:11, color:"#94A3B8", fontFamily:'JetBrains Mono, Consolas, monospace', marginTop:2 }}>{fmt(score.time)}</div>}
           </div>
         )}
       </div>
 
-      <div style={{ background:"var(--surface-1)", border:"0.5px solid var(--border)", borderRadius:12, padding:16, marginBottom:16 }}>
-        <div style={{ fontSize:12, fontWeight:500, color:"var(--text-secondary)", marginBottom:8, display:"flex", alignItems:"center", gap:6 }}>
+      <div style={{ background:"#F8FAFC", border:"0.5px solid #E2E8F0", borderRadius:12, padding:16, marginBottom:16 }}>
+        <div style={{ fontSize:12, fontWeight:500, color:"#475569", marginBottom:8, display:"flex", alignItems:"center", gap:6 }}>
           <HelpCircle size={14} aria-hidden="true" /> Your task
         </div>
         <div style={{ fontSize:14, lineHeight:1.7 }}>{p.question}</div>
       </div>
 
       <div style={{ marginBottom:16 }}>
-        <div style={{ fontSize:12, fontWeight:500, color:"var(--text-secondary)", marginBottom:10, display:"flex", alignItems:"center", gap:6 }}>
+        <div style={{ fontSize:12, fontWeight:500, color:"#475569", marginBottom:10, display:"flex", alignItems:"center", gap:6 }}>
           <Table2 size={14} aria-hidden="true" /> Table schemas (sample data)
         </div>
         {p.tables.map((t,i)=><SchemaTable key={i} t={t} />)}
       </div>
 
-      <div style={{ background:"var(--surface-1)", border:"0.5px solid var(--border)", borderRadius:8, padding:"10px 14px", marginBottom:18 }}>
-        <div style={{ fontSize:11, fontWeight:500, color:"var(--text-muted)", marginBottom:6, textTransform:"uppercase", letterSpacing:.5 }}>Concepts tested</div>
+      <div style={{ background:"#F8FAFC", border:"0.5px solid #E2E8F0", borderRadius:8, padding:"10px 14px", marginBottom:18 }}>
+        <div style={{ fontSize:11, fontWeight:500, color:"#94A3B8", marginBottom:6, textTransform:"uppercase", letterSpacing:.5 }}>Concepts tested</div>
         <div style={{ display:"flex", flexWrap:"wrap", gap:6 }}>
           {p.concepts.map((c,i)=>(
-            <span key={i} style={{ background:"var(--surface-0)", border:"0.5px solid var(--border)", borderRadius:"var(--radius)", padding:"2px 8px", fontSize:12, fontFamily:"var(--font-mono)", color:"var(--text-primary)" }}>{c}</span>
+            <span key={i} style={{ background:"#FFFFFF", border:"0.5px solid #E2E8F0", borderRadius:"8px", padding:"2px 8px", fontSize:12, fontFamily:'JetBrains Mono, Consolas, monospace', color:"#1E293B" }}>{c}</span>
           ))}
         </div>
       </div>
@@ -255,21 +255,21 @@ function PseudoStep({ p, pseudo, setPseudo, showHint, setShowHint, onNext }) {
       <Nofly />
       <VoiceBar text='Say your logic out loud before you write anything: "First I need to... then I will... finally I..." Narrate it to an imaginary interviewer. This is exactly what the whiteboard method trains.' />
 
-      <div style={{ background:"var(--surface-1)", border:"0.5px solid var(--border)", borderRadius:12, padding:14, marginBottom:14 }}>
-        <div style={{ fontSize:12, fontWeight:500, color:"var(--text-secondary)", marginBottom:6, display:"flex", alignItems:"center", gap:6 }}><HelpCircle size={13} aria-hidden="true"/> Task reminder</div>
+      <div style={{ background:"#F8FAFC", border:"0.5px solid #E2E8F0", borderRadius:12, padding:14, marginBottom:14 }}>
+        <div style={{ fontSize:12, fontWeight:500, color:"#475569", marginBottom:6, display:"flex", alignItems:"center", gap:6 }}><HelpCircle size={13} aria-hidden="true"/> Task reminder</div>
         <div style={{ fontSize:13, lineHeight:1.65 }}>{p.question}</div>
       </div>
 
       <div style={{ marginBottom:8 }}>
         <div style={{ fontSize:14, fontWeight:500, display:"flex", alignItems:"center", gap:6 }}>Step 1 — plan in plain English</div>
-        <div style={{ fontSize:12, color:"var(--text-muted)", marginTop:3 }}>Write what your query will do, step by step. No SQL syntax yet. Build the skeleton before the syntax.</div>
+        <div style={{ fontSize:12, color:"#94A3B8", marginTop:3 }}>Write what your query will do, step by step. No SQL syntax yet. Build the skeleton before the syntax.</div>
       </div>
 
       <textarea
         value={pseudo}
         onChange={e=>setPseudo(e.target.value)}
         placeholder={"E.g.:\n1. I need to filter lab_results to only HbA1c tests\n2. Then I need to keep only rows where the value exceeds 6.5\n3. Finally I will sort by result_date newest first"}
-        style={{ width:"100%", minHeight:180, padding:"12px 14px", fontFamily:"var(--font-mono)", fontSize:13, lineHeight:1.7, background:"var(--surface-0)", color:"var(--text-primary)", border:"0.5px solid var(--border-strong)", borderRadius:8, resize:"vertical", boxSizing:"border-box", outline:"none" }}
+        style={{ width:"100%", minHeight:180, padding:"12px 14px", fontFamily:'JetBrains Mono, Consolas, monospace', fontSize:13, lineHeight:1.7, background:"#FFFFFF", color:"#1E293B", border:"0.5px solid #CBD5E1", borderRadius:8, resize:"vertical", boxSizing:"border-box", outline:"none" }}
       />
 
       <div style={{ display:"flex", alignItems:"center", gap:10, marginTop:12 }}>
@@ -278,9 +278,9 @@ function PseudoStep({ p, pseudo, setPseudo, showHint, setShowHint, onNext }) {
       </div>
 
       {showHint&&(
-        <div style={{ background:"var(--bg-warning)", border:"0.5px solid var(--border-warning)", borderRadius:8, padding:"10px 14px", marginTop:12 }}>
-          <div style={{ fontSize:12, fontWeight:500, color:"var(--text-warning)", marginBottom:4 }}>Hint — try not to peek until you've struggled!</div>
-          <div style={{ fontSize:13, color:"var(--text-warning)", lineHeight:1.65 }}>{p.hint}</div>
+        <div style={{ background:"#FFFBEB", border:"0.5px solid #FDE68A", borderRadius:8, padding:"10px 14px", marginTop:12 }}>
+          <div style={{ fontSize:12, fontWeight:500, color:"#D97706", marginBottom:4 }}>Hint — try not to peek until you've struggled!</div>
+          <div style={{ fontSize:13, color:"#D97706", lineHeight:1.65 }}>{p.hint}</div>
         </div>
       )}
     </div>
@@ -302,7 +302,7 @@ function SqlStep({ p, sql, setSql, onBack, onGrade }) {
 
       <div style={{ display:"flex", flexWrap:"wrap", gap:8, marginBottom:14 }}>
         {p.tables.map((t,i)=>(
-          <div key={i} style={{ background:"var(--surface-1)", border:"0.5px solid var(--border)", borderRadius:"var(--radius)", padding:"4px 10px", fontSize:12, fontFamily:"var(--font-mono)", color:"var(--text-secondary)", display:"flex", alignItems:"center", gap:4 }}>
+          <div key={i} style={{ background:"#F8FAFC", border:"0.5px solid #E2E8F0", borderRadius:"8px", padding:"4px 10px", fontSize:12, fontFamily:'JetBrains Mono, Consolas, monospace', color:"#475569", display:"flex", alignItems:"center", gap:4 }}>
             <Table2 size={12} aria-hidden="true"/> {t.name}({t.cols.map(c=>c.split(" ")[0]).join(", ")})
           </div>
         ))}
@@ -310,7 +310,7 @@ function SqlStep({ p, sql, setSql, onBack, onGrade }) {
 
       <div style={{ marginBottom:8 }}>
         <div style={{ fontSize:14, fontWeight:500 }}>Step 2 — write the SQL</div>
-        <div style={{ fontSize:12, color:"var(--text-muted)", marginTop:3 }}>Plain text only. No syntax highlighting. No editor. Tab inserts 2 spaces.</div>
+        <div style={{ fontSize:12, color:"#94A3B8", marginTop:3 }}>Plain text only. No syntax highlighting. No editor. Tab inserts 2 spaces.</div>
       </div>
 
       <textarea
@@ -319,7 +319,7 @@ function SqlStep({ p, sql, setSql, onBack, onGrade }) {
         onKeyDown={handleTab}
         placeholder={"SELECT ...\nFROM ...\nWHERE ...\n\n-- Write your full answer here"}
         spellCheck={false} autoComplete="off" autoCorrect="off" autoCapitalize="off"
-        style={{ width:"100%", minHeight:240, padding:"12px 14px", fontFamily:"var(--font-mono)", fontSize:13, lineHeight:1.75, background:"var(--surface-0)", color:"var(--text-primary)", border:"0.5px solid var(--border-strong)", borderRadius:8, resize:"vertical", boxSizing:"border-box", outline:"none" }}
+        style={{ width:"100%", minHeight:240, padding:"12px 14px", fontFamily:'JetBrains Mono, Consolas, monospace', fontSize:13, lineHeight:1.75, background:"#FFFFFF", color:"#1E293B", border:"0.5px solid #CBD5E1", borderRadius:8, resize:"vertical", boxSizing:"border-box", outline:"none" }}
       />
 
       <div style={{ display:"flex", alignItems:"center", gap:10, marginTop:12 }}>
@@ -336,8 +336,8 @@ function GradingStep() {
   useEffect(()=>{ const t=setInterval(()=>setI(x=>(x+1)%MSGS.length),1300); return()=>clearInterval(t); },[]);
   return (
     <div style={{ textAlign:"center", padding:"56px 0" }}>
-      <Loader2 size={36} style={{ color:"var(--text-accent)", animation:"spin 1s linear infinite", marginBottom:16 }} aria-hidden="true"/>
-      <div style={{ fontSize:14, color:"var(--text-secondary)" }}>{MSGS[i]}</div>
+      <Loader2 size={36} style={{ color:"#0D9488", animation:"spin 1s linear infinite", marginBottom:16 }} aria-hidden="true"/>
+      <div style={{ fontSize:14, color:"#475569" }}>{MSGS[i]}</div>
       <style>{`@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}`}</style>
     </div>
   );
@@ -346,10 +346,10 @@ function GradingStep() {
 function ReviewStep({ p, result, time, showModel, setShowModel, onRetry, onNext }) {
   if (result.error) {
     return (
-      <div style={{ background:"var(--bg-danger)", border:"0.5px solid var(--border-danger)", borderRadius:12, padding:20 }}>
-        <div style={{ fontSize:14, fontWeight:500, color:"var(--text-danger)", marginBottom:4 }}>Grading failed</div>
-        <div style={{ fontSize:13, color:"var(--text-danger)", marginBottom:12 }}>{result.message}</div>
-        <Btn variant="ghost" onClick={onRetry} style={{ borderColor:"var(--border-danger)", color:"var(--text-danger)" }}><RefreshCw size={14} aria-hidden="true"/> Try again</Btn>
+      <div style={{ background:"#FEF2F2", border:"0.5px solid #FECACA", borderRadius:12, padding:20 }}>
+        <div style={{ fontSize:14, fontWeight:500, color:"#DC2626", marginBottom:4 }}>Grading failed</div>
+        <div style={{ fontSize:13, color:"#DC2626", marginBottom:12 }}>{result.message}</div>
+        <Btn variant="ghost" onClick={onRetry} style={{ borderColor:"#FECACA", color:"#DC2626" }}><RefreshCw size={14} aria-hidden="true"/> Try again</Btn>
       </div>
     );
   }
@@ -359,12 +359,12 @@ function ReviewStep({ p, result, time, showModel, setShowModel, onRetry, onNext 
 
   return (
     <div>
-      <div style={{ background:"var(--surface-1)", border:"0.5px solid var(--border)", borderRadius:12, padding:"16px 20px", marginBottom:14, display:"flex", alignItems:"center", justifyContent:"space-between", gap:16 }}>
+      <div style={{ background:"#F8FAFC", border:"0.5px solid #E2E8F0", borderRadius:12, padding:"16px 20px", marginBottom:14, display:"flex", alignItems:"center", justifyContent:"space-between", gap:16 }}>
         <div style={{ display:"flex", alignItems:"center", gap:14 }}>
           <VIcon size={32} style={{ color:`var(--text-${vr})`, flexShrink:0 }} aria-hidden="true"/>
           <div>
             <div style={{ fontSize:17, fontWeight:500 }}>{result.verdict||"Graded"}</div>
-            <div style={{ fontSize:12, color:"var(--text-muted)", marginTop:2 }}>
+            <div style={{ fontSize:12, color:"#94A3B8", marginTop:2 }}>
               <Clock size={12} style={{ verticalAlign:"middle", marginRight:3 }} aria-hidden="true"/>{fmt(time)} · {p.diff}
             </div>
           </div>
@@ -376,48 +376,48 @@ function ReviewStep({ p, result, time, showModel, setShowModel, onRetry, onNext 
       </div>
 
       <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:12, marginBottom:12 }}>
-        <div style={{ background:"var(--surface-1)", border:"0.5px solid var(--border)", borderRadius:12, padding:14 }}>
-          <div style={{ fontSize:12, fontWeight:500, color:"var(--text-secondary)", marginBottom:8, display:"flex", alignItems:"center", gap:5 }}><Clock size={13} aria-hidden="true"/>Logic assessment</div>
+        <div style={{ background:"#F8FAFC", border:"0.5px solid #E2E8F0", borderRadius:12, padding:14 }}>
+          <div style={{ fontSize:12, fontWeight:500, color:"#475569", marginBottom:8, display:"flex", alignItems:"center", gap:5 }}><Clock size={13} aria-hidden="true"/>Logic assessment</div>
           <div style={{ fontSize:13, lineHeight:1.65 }}>{result.logic_feedback}</div>
         </div>
-        <div style={{ background:"var(--surface-1)", border:"0.5px solid var(--border)", borderRadius:12, padding:14 }}>
-          <div style={{ fontSize:12, fontWeight:500, color:"var(--text-secondary)", marginBottom:8, display:"flex", alignItems:"center", gap:5 }}><Send size={13} aria-hidden="true"/>SQL assessment</div>
+        <div style={{ background:"#F8FAFC", border:"0.5px solid #E2E8F0", borderRadius:12, padding:14 }}>
+          <div style={{ fontSize:12, fontWeight:500, color:"#475569", marginBottom:8, display:"flex", alignItems:"center", gap:5 }}><Send size={13} aria-hidden="true"/>SQL assessment</div>
           <div style={{ fontSize:13, lineHeight:1.65 }}>{result.sql_feedback}</div>
         </div>
       </div>
 
       <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:12, marginBottom:12 }}>
-        <div style={{ background:"var(--bg-success)", border:"0.5px solid var(--border-success)", borderRadius:12, padding:14 }}>
-          <div style={{ fontSize:12, fontWeight:500, color:"var(--text-success)", marginBottom:8, display:"flex", alignItems:"center", gap:5 }}><ThumbsUp size={13} aria-hidden="true"/>What worked</div>
+        <div style={{ background:"#ECFDF5", border:"0.5px solid #A7F3D0", borderRadius:12, padding:14 }}>
+          <div style={{ fontSize:12, fontWeight:500, color:"#059669", marginBottom:8, display:"flex", alignItems:"center", gap:5 }}><ThumbsUp size={13} aria-hidden="true"/>What worked</div>
           <ul style={{ margin:0, paddingLeft:16 }}>
-            {(result.what_worked||[]).map((w,i)=><li key={i} style={{ fontSize:13, color:"var(--text-success)", lineHeight:1.6, marginBottom:3 }}>{w}</li>)}
+            {(result.what_worked||[]).map((w,i)=><li key={i} style={{ fontSize:13, color:"#059669", lineHeight:1.6, marginBottom:3 }}>{w}</li>)}
           </ul>
         </div>
-        <div style={{ background:"var(--bg-danger)", border:"0.5px solid var(--border-danger)", borderRadius:12, padding:14 }}>
-          <div style={{ fontSize:12, fontWeight:500, color:"var(--text-danger)", marginBottom:8, display:"flex", alignItems:"center", gap:5 }}><Wrench size={13} aria-hidden="true"/>What to fix</div>
+        <div style={{ background:"#FEF2F2", border:"0.5px solid #FECACA", borderRadius:12, padding:14 }}>
+          <div style={{ fontSize:12, fontWeight:500, color:"#DC2626", marginBottom:8, display:"flex", alignItems:"center", gap:5 }}><Wrench size={13} aria-hidden="true"/>What to fix</div>
           <ul style={{ margin:0, paddingLeft:16 }}>
-            {(result.what_to_fix||[]).map((w,i)=><li key={i} style={{ fontSize:13, color:"var(--text-danger)", lineHeight:1.6, marginBottom:3 }}>{w}</li>)}
+            {(result.what_to_fix||[]).map((w,i)=><li key={i} style={{ fontSize:13, color:"#DC2626", lineHeight:1.6, marginBottom:3 }}>{w}</li>)}
           </ul>
         </div>
       </div>
 
       {result.interview_tip&&(
-        <div style={{ background:"var(--bg-accent)", border:"0.5px solid var(--border-accent)", borderRadius:8, padding:"10px 14px", marginBottom:12, display:"flex", gap:10, alignItems:"flex-start" }}>
-          <Lightbulb size={15} style={{ color:"var(--text-accent)", marginTop:2, flexShrink:0 }} aria-hidden="true"/>
-          <div style={{ fontSize:13, color:"var(--text-accent)", lineHeight:1.6 }}><span style={{ fontWeight:500 }}>Interview tip: </span>{result.interview_tip}</div>
+        <div style={{ background:"#F0FDFA", border:"0.5px solid #99F6E4", borderRadius:8, padding:"10px 14px", marginBottom:12, display:"flex", gap:10, alignItems:"flex-start" }}>
+          <Lightbulb size={15} style={{ color:"#0D9488", marginTop:2, flexShrink:0 }} aria-hidden="true"/>
+          <div style={{ fontSize:13, color:"#0D9488", lineHeight:1.6 }}><span style={{ fontWeight:500 }}>Interview tip: </span>{result.interview_tip}</div>
         </div>
       )}
 
       <div style={{ marginBottom:16 }}>
         <button
           onClick={()=>setShowModel(!showModel)}
-          style={{ background:"transparent", color:"var(--text-secondary)", border:"0.5px solid var(--border)", borderRadius:"var(--radius)", padding:"8px 14px", fontSize:13, cursor:"pointer", width:"100%", textAlign:"left", display:"flex", alignItems:"center", justifyContent:"space-between" }}
+          style={{ background:"transparent", color:"#475569", border:"0.5px solid #E2E8F0", borderRadius:"8px", padding:"8px 14px", fontSize:13, cursor:"pointer", width:"100%", textAlign:"left", display:"flex", alignItems:"center", justifyContent:"space-between" }}
         >
           <span style={{ display:"flex", alignItems:"center", gap:6 }}>{showModel?<EyeOff size={14} aria-hidden="true"/>:<Eye size={14} aria-hidden="true"/>}{showModel?"Hide":"Show"} model answer</span>
           {showModel?<ChevronUp size={14} aria-hidden="true"/>:<ChevronDown size={14} aria-hidden="true"/>}
         </button>
         {showModel&&(
-          <pre style={{ margin:0, padding:"14px 16px", background:"var(--surface-0)", border:"0.5px solid var(--border)", borderTop:"none", borderRadius:"0 0 8px 8px", fontSize:13, fontFamily:"var(--font-mono)", lineHeight:1.75, overflowX:"auto", color:"var(--text-primary)", whiteSpace:"pre-wrap" }}>
+          <pre style={{ margin:0, padding:"14px 16px", background:"#FFFFFF", border:"0.5px solid #E2E8F0", borderTop:"none", borderRadius:"0 0 8px 8px", fontSize:13, fontFamily:'JetBrains Mono, Consolas, monospace', lineHeight:1.75, overflowX:"auto", color:"#1E293B", whiteSpace:"pre-wrap" }}>
             {result.model_answer}
           </pre>
         )}
@@ -493,23 +493,23 @@ export default function App() {
   const passed = Object.values(scores).filter(s=>s.passed).length;
 
   return (
-    <div style={{ fontFamily:"var(--font-sans)", color:"var(--text-primary)", padding:"16px 0" }}>
+    <div style={{ fontFamily:'-apple-system, BlinkMacSystemFont, Segoe UI, Arial, sans-serif', color:"#1E293B", padding:"16px 24px", maxWidth: 900, margin: "0 auto" }}>
       <h2 style={{ position:"absolute", width:1, height:1, padding:0, margin:-1, overflow:"hidden", clip:"rect(0,0,0,0)", border:0 }}>
         Whiteboard SQL — 10 healthcare SQL challenges with AI grading
       </h2>
 
-      <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", marginBottom:14, paddingBottom:14, borderBottom:"0.5px solid var(--border)" }}>
+      <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", marginBottom:14, paddingBottom:14, borderBottom:"0.5px solid #E2E8F0" }}>
         <div>
           <div style={{ fontWeight:500 }}>Whiteboard SQL</div>
-          <div style={{ fontSize:12, color:"var(--text-muted)" }}>10 healthcare problems · no autocomplete · no safety net</div>
+          <div style={{ fontSize:12, color:"#94A3B8" }}>10 healthcare problems · no autocomplete · no safety net</div>
         </div>
         <div style={{ display:"flex", alignItems:"center", gap:16 }}>
           <div style={{ fontSize:13 }}>
-            <span style={{ fontWeight:500, color:"var(--text-success)" }}>{passed}</span>
-            <span style={{ color:"var(--text-muted)" }}>/10 passed</span>
+            <span style={{ fontWeight:500, color:"#059669" }}>{passed}</span>
+            <span style={{ color:"#94A3B8" }}>/10 passed</span>
           </div>
           {(running||timer>0)&&(
-            <div style={{ fontFamily:"var(--font-mono)", fontSize:13, color:timer>600?"var(--text-danger)":"var(--text-secondary)", display:"flex", alignItems:"center", gap:4 }}>
+            <div style={{ fontFamily:'JetBrains Mono, Consolas, monospace', fontSize:13, color:timer>600?"#DC2626":"#475569", display:"flex", alignItems:"center", gap:4 }}>
               <Clock size={13} aria-hidden="true"/> {fmt(timer)}
             </div>
           )}
@@ -521,11 +521,11 @@ export default function App() {
           const sc=scores[pr.id]; const active=i===idx;
           return (
             <button key={pr.id} onClick={()=>pick(i)} aria-label={`Problem ${pr.id}: ${pr.title}`}
-              style={{ padding:"5px 11px", borderRadius:"var(--radius)", cursor:"pointer", flexShrink:0, border:active?"0.5px solid var(--border-accent)":"0.5px solid var(--border)", background:active?"var(--bg-accent)":"transparent", color:active?"var(--text-accent)":"var(--text-secondary)", fontFamily:"var(--font-mono)", fontSize:12, display:"flex", alignItems:"center", gap:5 }}>
+              style={{ padding:"5px 11px", borderRadius:"8px", cursor:"pointer", flexShrink:0, border:active?"0.5px solid #99F6E4":"0.5px solid #E2E8F0", background:active?"#F0FDFA":"transparent", color:active?"#0D9488":"#475569", fontFamily:'JetBrains Mono, Consolas, monospace', fontSize:12, display:"flex", alignItems:"center", gap:5 }}>
               {sc?.passed
-                ? <CheckCircle2 size={11} style={{ color:"var(--text-success)" }} aria-hidden="true"/>
+                ? <CheckCircle2 size={11} style={{ color:"#059669" }} aria-hidden="true"/>
                 : sc
-                ? <span style={{ width:7, height:7, borderRadius:"50%", background:"var(--text-warning)", display:"inline-block" }}/>
+                ? <span style={{ width:7, height:7, borderRadius:"50%", background:"#D97706", display:"inline-block" }}/>
                 : <span style={{ width:7, height:7, borderRadius:"50%", border:"1px solid currentColor", display:"inline-block" }}/>}
               #{pad2(pr.id)}
             </button>
