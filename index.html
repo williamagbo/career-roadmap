@@ -481,14 +481,14 @@ footer strong{color:var(--teal-lt);}
         <li class="ci"><input type="checkbox" id="c3_10"><label for="c3_10">Push to GitHub; add dashboard screenshot and case study PDF to portfolio site</label></li>
       </ul>
 
-      <p class="dl-heading">✓ Project 3 — Clinical Readmission Prediction (New, Public Data)</p>
+      <p class="dl-heading">✓ Project 3 — Diabetic Patient Readmission Analysis (New, Public Data)</p>
       <ul class="checklist" data-phase="3">
-        <li class="ci"><input type="checkbox" id="c3_11"><label for="c3_11">Register at PhysioNet and download the MIMIC-IV demo dataset</label></li>
-        <li class="ci"><input type="checkbox" id="c3_12"><label for="c3_12">Define a precise clinical question a hospital administrator would actually pay to answer</label></li>
-        <li class="ci"><input type="checkbox" id="c3_13"><label for="c3_13">Complete a full EDA notebook in Python: missing data audit, distributions, feature correlations</label></li>
-        <li class="ci"><input type="checkbox" id="c3_14"><label for="c3_14">Build a scikit-learn classification pipeline (Logistic Regression + Random Forest)</label></li>
-        <li class="ci"><input type="checkbox" id="c3_15"><label for="c3_15">Evaluate performance: AUC-ROC, confusion matrix, feature importance plot — explain what each means clinically</label></li>
-        <li class="ci"><input type="checkbox" id="c3_16"><label for="c3_16">Build a Streamlit dashboard with clinician-facing risk visualisations</label></li>
+        <li class="ci"><input type="checkbox" id="c3_11"><label for="c3_11">Download the UCI Diabetes 130-US Hospitals dataset (~100K rows, 47 features, instant download, no registration barrier) and the CMS Hospital Readmissions Reduction Program dataset as a supplementary source</label></li>
+        <li class="ci"><input type="checkbox" id="c3_12"><label for="c3_12">Define a precise clinical question a hospital administrator would actually pay to answer — e.g. which diabetic patients are highest-risk for 30-day readmission</label></li>
+        <li class="ci"><input type="checkbox" id="c3_13"><label for="c3_13">Complete a full EDA notebook in Python: handle missing values coded as "?", multiple encounters per patient, categorical medication columns — genuinely messy data, not a pre-cleaned toy set</label></li>
+        <li class="ci"><input type="checkbox" id="c3_14"><label for="c3_14">Build a scikit-learn classification pipeline (Logistic Regression + Random Forest / XGBoost) to predict readmission risk</label></li>
+        <li class="ci"><input type="checkbox" id="c3_15"><label for="c3_15">Evaluate performance: AUC-ROC, confusion matrix, feature importance plot — explain what each means clinically, drawing on your own diabetes/lab domain expertise</label></li>
+        <li class="ci"><input type="checkbox" id="c3_16"><label for="c3_16">Build a Power BI or Streamlit dashboard with clinician-facing risk visualisations — same "ML model → BI reporting layer" pipeline pattern as UrbanGrocers, keeping your portfolio narratively consistent</label></li>
         <li class="ci"><input type="checkbox" id="c3_17"><label for="c3_17">Write the consulting deck: frame every insight as a decision, not just a number</label></li>
         <li class="ci"><input type="checkbox" id="c3_18"><label for="c3_18">Push to GitHub (raw patient data excluded); add to portfolio site</label></li>
       </ul>
@@ -571,7 +571,8 @@ footer strong{color:var(--teal-lt);}
         <div class="res-group">
           <p class="res-group-lbl">Clinical Data</p>
           <div class="chips">
-            <a href="https://physionet.org/content/mimiciv/2.2/" target="_blank" class="chip c-data">MIMIC-IV — Clinical EHR Data</a>
+            <a href="https://archive.ics.uci.edu/dataset/296/diabetes+130-us+hospitals+for+years+1999-2008" target="_blank" class="chip c-data">UCI Diabetes 130-US Hospitals</a>
+            <a href="https://data.cms.gov/provider-data/dataset/9n3s-kdb3" target="_blank" class="chip c-data">CMS Hospital Readmissions (HRRP)</a>
             <a href="https://www.who.int/data/gho" target="_blank" class="chip c-data">WHO Global Health Observatory</a>
             <a href="https://dhims.mohgov.gh" target="_blank" class="chip c-data">Ghana DHIMS2</a>
             <a href="https://data.worldbank.org/topic/health" target="_blank" class="chip c-data">World Bank Health Datasets</a>
@@ -849,7 +850,7 @@ footer strong{color:var(--teal-lt);}
     <div class="ms-card" style="--mc:var(--p1)"><span class="ms-month">July 2026</span><p class="ms-text">Skill gap assessed · 20 job postings analysed · SQL fundamentals begun · GitHub set up · LinkedIn updated on day one · LFT simulation (Project 1) polished and published</p></div>
     <div class="ms-card" style="--mc:var(--p2)"><span class="ms-month">August 2026</span><p class="ms-text">Excel and Storytelling complete · Power BI basics done · Procurement dashboard rebuilt (Project 2 in progress) · Posting on LinkedIn 2–3x/week</p></div>
     <div class="ms-card" style="--mc:var(--p2)"><span class="ms-month">September 2026</span><p class="ms-text">Project 2 complete with consulting deck · Pro-bono NGO engagement started · LinkedIn thought leadership active · Whiteboard SQL all 10 passed</p></div>
-    <div class="ms-card" style="--mc:var(--p3)"><span class="ms-month">October 2026</span><p class="ms-text">MIMIC-IV Project 3 complete · Pro-bono case study delivered · Portfolio one-pager live · 10 diagnostic applications sent · CV and LinkedIn refined from real feedback</p></div>
+    <div class="ms-card" style="--mc:var(--p3)"><span class="ms-month">October 2026</span><p class="ms-text">Diabetic Readmission Project 3 complete (UCI + CMS data) · Pro-bono case study delivered · Portfolio one-pager live · 10 diagnostic applications sent · CV and LinkedIn refined from real feedback</p></div>
     <div class="ms-card" style="--mc:var(--p4)"><span class="ms-month">November 2026</span><p class="ms-text">Applying 3–5 targeted roles/week at full volume · STAR stories rehearsed · Following up on summer networking conversations</p></div>
     <div class="ms-card" style="--mc:var(--p4)"><span class="ms-month">December 2026</span><p class="ms-text">First interviews scheduled · Elevator pitch perfected · First remote offer in sight</p></div>
   </div>
